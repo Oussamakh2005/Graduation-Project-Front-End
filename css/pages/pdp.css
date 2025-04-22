@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #222;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #eee;
+}
+
+nav {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+body.dark-mode .container {
+    background-color: #2c2c2c;
+}
+
+.toggle-mode {
+    text-align: left;
+    margin: 15px;
+}
+
+.toggle-mode button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.car-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.car-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.car-info {
+    padding: 24px;
+}
+
+.car-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.car-price {
+    font-size: 20px;
+    color: #28a745;
+    margin-bottom: 8px;
+}
+
+.car-rating {
+    margin-bottom: 12px;
+}
+
+.car-rating i {
+    color: gold;
+    margin-left: 3px;
+}
+
+.car-description {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.feature {
+    background: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark-mode .feature {
+    background: #3a3a3a;
+}
+
+.specs-table,
+.terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.specs-table th,
+.specs-table td,
+.terms-table th,
+.terms-table td {
+    padding: 10px;
+    text-align: right;
+    border-bottom: 1px solid #ccc;
+}
+
+body.dark-mode td,
+body.dark-mode th {
+    border-color: #555;
+}
+
+.reserve-btn {
+    background: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.reserve-btn:hover {
+    background: #0056b3;
+}
+
+.reviews,
+.related-cars {
+    padding: 20px;
+}
+
+.review {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+body.dark-mode .review {
+    background-color: #383838;
+    border: 1px solid #555;
+}
+
+.related-cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.related-card {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.related-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .related-card {
+    background-color: #444;
+    border-color: #666;
+}
+
+@media (min-width: 768px) {
+    .car-header {
+        flex-direction: row;
+    }
+
+    .car-image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image-container {
+        width: 50%;
+        padding: 20px;
+    }
+
+    .car-info {
+        width: 50%;
+    }
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.footer-content h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.footer-content p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.footer-content i {
+    margin-left: 8px;
+}
+
+/* Navigation Dark Mode */
+body.dark-mode nav {
+    background-color: #1f1f1f;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode nav a {
+    color: #e0e0e0;
+}
+
+body.dark-mode nav a:hover {
+    color: #ffffff;
+}
+
+body.dark-mode footer {
+    background-color: #004080;
+}
+
+/*for slider*/
+.gallery {
+    margin: 30px 0;
+}
+
+.swiper {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.swiper-slide img {
+    width: 100%;
+    border-radius: 10px;
+}
