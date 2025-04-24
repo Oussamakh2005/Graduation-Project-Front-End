@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>إضافة سيارة جديدة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"  href="../../css/dashboard/admin/new_car.css"/>
+
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2><i class="fas fa-car"></i> لوحة المشرف</h2>
+      <ul>
+        <li><a href="./dashboard.html"><i class="fas fa-chart-line"></i> لوحة التحكم</a></li>
+        <li class="active"><a href="#"><i class="fas fa-car-side"></i> السيارات</a></li>
+        <li><a href="./users.html"><i class="fas fa-users"></i> المستخدمون</a></li>
+        <li><a href="#"><i class="fas fa-hand-holding-usd"></i> المبيعات</a></li>
+        <li><a href="#"><i class="fas fa-cog"></i> الإعدادات</a></li>
+      </ul>
+    </div>
+    <div class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
+  </div>
+
+  <div class="main">
+    <div class="dashboard-header"><i class="fas fa-plus-circle"></i> إضافة سيارة جديدة</div>
+    <div class="form-container">
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-step active" id="progress-1">
+          1
+          <span class="progress-label">معلومات أساسية</span>
+        </div>
+        <div class="progress-step" id="progress-2">
+          2
+          <span class="progress-label">مواصفات فنية</span>
+        </div>
+        <div class="progress-step" id="progress-3">
+          3
+          <span class="progress-label">صور السيارة</span>
+        </div>
+      </div>
+
+      <form id="carForm">
+        <!-- Step 1 -->
+        <div class="step active" id="step-1">
+          <div class="form-section-title">المعلومات الأساسية للسيارة</div>
+          <div class="form-group">
+            <label for="carId">رقم السيارة</label>
+            <input type="text" id="carId" name="carId" placeholder="أدخل رقم السيارة" required>
+          </div>
+          <div class="form-group">
+            <label for="brand">الشركة المصنعة</label>
+            <select id="brand" name="brand" required>
+              <option value="" disabled selected>اختر الشركة المصنعة</option>
+              <option value="toyota">تويوتا</option>
+              <option value="honda">هوندا</option>
+              <option value="nissan">نيسان</option>
+              <option value="hyundai">هيونداي</option>
+              <option value="kia">كيا</option>
+              <option value="mercedes">مرسيدس</option>
+              <option value="bmw">بي إم دبليو</option>
+              <option value="audi">أودي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="model">الموديل</label>
+            <input type="text" id="model" name="model" placeholder="أدخل موديل السيارة" required>
+          </div>
+          <div class="form-group">
+            <label for="year">سنة الصنع</label>
+            <input type="number" id="year" name="year" min="1990" max="2024" placeholder="أدخل سنة الصنع" required>
+          </div>
+          <div class="form-group">
+            <label for="color">اللون</label>
+            <input type="text" id="color" name="color" placeholder="أدخل لون السيارة" required>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" id="step-2">
+          <div class="form-section-title">المواصفات الفنية</div>
+          <div class="form-group">
+            <label for="engine">نوع المحرك</label>
+            <input type="text" id="engine" name="engine" placeholder="مثال: 2.0L Turbo" required>
+          </div>
+          <div class="form-group">
+            <label for="horsepower">القوة الحصانية</label>
+            <input type="number" id="horsepower" name="horsepower" placeholder="أدخل القوة الحصانية" required>
+          </div>
+          <div class="form-group">
+            <label for="transmission">ناقل الحركة</label>
+            <select id="transmission" name="transmission">
+              <option value="automatic">أوتوماتيكي</option>
+              <option value="manual">عادي</option>
+              <option value="cvt">CVT</option>
+              <option value="dct">DCT</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fuelType">نوع الوقود</label>
+            <select id="fuelType" name="fuelType">
+              <option value="petrol">بنزين</option>
+              <option value="diesel">ديزل</option>
+              <option value="hybrid">هجين</option>
+              <option value="electric">كهربائي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mileage">المسافة المقطوعة (كم)</label>
+            <input type="number" id="mileage" name="mileage" placeholder="أدخل عدد الكيلومترات" required>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step" id="step-3">
+          <div class="form-section-title">صور السيارة</div>
+          <div class="form-group">
+            <label for="mainImage">الصورة الرئيسية</label>
+            <div class="file-upload-container" id="mainImageUpload">
+              <div class="file-upload-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <div class="file-upload-text">اسحب وأفلت الصورة الرئيسية هنا</div>
+              <div class="file-upload-hint">أو انقر للاختيار من جهازك (الحد الأقصى: 5 ميجابايت)</div>
+              <input type="file" id="mainImage" name="mainImage" class="hidden-file-input" accept="image/*">
+            </div>
+            <div class="preview-container" id="mainImagePreview"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="additionalImages">صور إضافية (حتى 4 صور)</label>
+            <div class="file-upload-container" id="additionalImagesUpload">
+              <div class="file-upload-icon">
+                <i class="fas fa-images"></i>
+              </div>
+              <div class="file-upload-text">اسحب وأفلت الصور الإضافية هنا</div>
+              <div class="file-upload-hint">أو انقر للاختيار من جهازك (الحد الأقصى: 5 صور)</div>
+              <input type="file" id="additionalImages" name="additionalImages" class="hidden-file-input" accept="image/*" multiple>
+            </div>
+            <div class="preview-container" id="additionalImagesPreview"></div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="step-buttons">
+          <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;"><i class="fas fa-arrow-right"></i> السابق</button>
+          <button type="button" class="btn btn-primary" id="nextBtn"><i class="fas fa-arrow-left"></i> التالي</button>
+          <button type="submit" class="btn btn-finish" id="submitBtn" style="display: none;"><i class="fas fa-save"></i> حفظ السيارة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="../../js/utils/addCarSteps.js"></script>
+</body>
+</html>

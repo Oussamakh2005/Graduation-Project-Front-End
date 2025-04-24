@@ -6,8 +6,9 @@
   <title>تسجيل الدخول</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" type="text/css" href="../css/pages/login.css">
+  <link rel="stylesheet" type="text/css" href="../css/main/login.css">
   <link rel="stylesheet" type="text/css" href="../css/component/toast.css">
+  <link rel="stylesheet" type="text/css" href="../css/component/spinner.css">
 </head>
 <body>
 
@@ -35,7 +36,7 @@
         <i class="fas fa-eye toggle-pass" id="togglePassword"></i>
         <input type="password" id="password" placeholder="كلمة المرور" required>
       </div>
-      <button type="submit" id="loginBtn">تسجيل الدخول</button>
+      <button type="button" id="signin-btn">تسجيل الدخول</button>
     </form>
     <div class="links">
       <a href="./forgot_your_password.html">نسيت كلمة المرور؟</a><br>
@@ -45,11 +46,14 @@
   <script src="../js/utils/darkMode.js"></script>
   <script type="module" src="../js/utils/showToast.js"></script>
   <script type="module" src="../js/utils/showHidePassword.js"></script>
+  <script src="../js/utils/showToast.js"></script>
+ 
   <script>
     // تفعيل ظهور الـ login-container عند تحميل الصفحة
     window.onload = () => {
       document.querySelector(".login-container").style.opacity = "1";
     };
   </script>
+  <script type="module" src="../js/auth/signin.js"></script>
 </body>
 </html>

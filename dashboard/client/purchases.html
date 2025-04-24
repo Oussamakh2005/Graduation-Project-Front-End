@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوابة الزبون</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css//dashboard/client/purchases.css"/>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <div>
+      <h2><i class="fas fa-user"></i> بوابة الزبون</h2>
+      <ul>
+        <li><i class="fas fa-home"></i> لوحة التحكم</li>
+        <li class="active"><a href="#"><i class="fas fa-shopping-cart"></i> مشترياتي</a></li>
+        <li><a href="./payments.html"><i class="fas fa-money-bill-wave"></i> مدفوعاتي</a></li>
+      </ul>
+    </div>
+    <div class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
+  </div>
+
+  <div class="main">
+    <div class="dashboard-header">مشترياتي</div>
+    <div class="cards">
+      <div class="card">
+        <div class="info">
+          <h3>إجمالي المشتريات</h3>
+          <div class="value">2</div>
+        </div>
+        <div class="icon"><i class="fas fa-box-open"></i></div>
+      </div>
+      <div class="card">
+        <div class="info">
+          <h3>المدفوعات النشطة</h3>
+          <div class="value">$22,500</div>
+        </div>
+        <div class="icon"><i class="fas fa-credit-card"></i></div>
+      </div>
+      <div class="card">
+        <div class="info">
+          <h3>الدفع القادم</h3>
+          <div class="value">$450</div>
+        </div>
+        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+      </div>
+    </div>
+
+    <table class="purchase-table">
+      <thead>
+        <tr>
+          <th>المعرف</th>
+          <th>السيارة</th>
+          <th>السعر</th>
+          <th>تاريخ الشراء</th>
+          <th>طريقة الدفع</th>
+          <th>الحالة</th>
+          <th>المتبقي</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PUR-001</td>
+          <td>Toyota Camry 2023</td>
+          <td>$28,500</td>
+          <td>2024-02-15</td>
+          <td>تقسيط</td>
+          <td><span class="badge active">نشطة</span></td>
+          <td>$22,500</td>
+        </tr>
+        <tr>
+          <td>PUR-002</td>
+          <td>Honda Civic 2022</td>
+          <td>$22,400</td>
+          <td>2023-12-10</td>
+          <td>دفعة كاملة</td>
+          <td><span class="badge completed">مكتملة</span></td>
+          <td>$0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

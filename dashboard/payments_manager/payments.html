@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الدفعات المقدمة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"  href="../../css/dashboard/payments_manager/payments.css"/>
+  
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2><i class="fas fa-credit-card"></i> بوابة الدفع</h2>
+      <ul>
+        <li><a href="./dashboard.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li class="active"><a href="#"><i class="fas fa-credit-card"></i> المدفوعات</a></li>
+        <li><i class="fas fa-file-invoice-dollar"></i> الفواتير</li>
+        <li><i class="fas fa-user-shield"></i> المشرفين</li>
+        <li><i class="fas fa-cog"></i> الإعدادات</li>
+      </ul>
+    </div>
+    <div class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
+  </div>
+
+  <div class="main">
+    <div class="dashboard-header">إدارة الدفعات المقدمة</div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>الرقم</th>
+            <th>العميل</th>
+            <th>السيارة</th>
+            <th>المبلغ</th>
+            <th>التاريخ</th>
+            <th>الحالة</th>
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DP-001</td>
+            <td>Alex Johnson</td>
+            <td>Toyota Camry 2023</td>
+            <td>$5000</td>
+            <td>2024-04-15</td>
+            <td><span class="badge pending">قيد الانتظار</span></td>
+            <td><button class="process-btn">معالجة الدفع</button></td>
+          </tr>
+          <tr>
+            <td>DP-002</td>
+            <td>Sarah Wilson</td>
+            <td>Honda Civic 2022</td>
+            <td>$4500</td>
+            <td>2024-04-14</td>
+            <td><span class="badge completed">مكتمل</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

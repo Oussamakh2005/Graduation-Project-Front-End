@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة مبيعات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"  href="../../css/dashboard/sales_manager/dashboard.css"/>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2><i class="fas fa-car"></i> بوابة المبيعات</h2>
+      <ul>
+        <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+        <li><a href="./sales.html"><i class="fas fa-list"></i> قائمة المبيعات</a></li>
+        <li><i class="fas fa-truck"></i> الاستلامات</li>
+        <li><i class="fas fa-file-alt"></i> التقارير</li>
+      </ul>
+    </div>
+    <div class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
+  </div>
+
+  <div class="main">
+    <div class="dashboard-header">لوحة المبيعات</div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="info">
+          <h3>إجمالي المبيعات</h3>
+          <div class="value">$354K</div>
+        </div>
+        <div class="icon"><i class="fas fa-dollar-sign"></i></div>
+      </div>
+      <div class="card">
+        <div class="info">
+          <h3>السيارات المباعة</h3>
+          <div class="value">42</div>
+        </div>
+        <div class="icon"><i class="fas fa-car"></i></div>
+      </div>
+      <div class="card">
+        <div class="info">
+          <h3>عملاء جدد</h3>
+          <div class="value">28</div>
+        </div>
+        <div class="icon"><i class="fas fa-user-plus"></i></div>
+      </div>
+      <div class="card">
+        <div class="info">
+          <h3>الاستلامات المعلقة</h3>
+          <div class="value">5</div>
+        </div>
+        <div class="icon"><i class="fas fa-car-side"></i></div>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <h3>أداء المبيعات</h3>
+      <div class="chart-placeholder">مخطط بياني للمبيعات</div>
+    </div>
+
+    <div class="pending-section">
+      <h3>الاستلامات المعلقة</h3>
+      <div class="pickup">
+        <div>
+          <strong>Maria Garcia</strong><br>
+          Honda Civic 2022<br>
+          <small>مجدول: 2023-04-20</small>
+        </div>
+        <button>تحديث الحالة</button>
+      </div>
+      <div class="pickup">
+        <div>
+          <strong>James Wilson</strong><br>
+          Ford F-150 2023<br>
+          <small>مجدول: 2023-04-22</small>
+        </div>
+        <button>تحديث الحالة</button>
+      </div>
+    </div>
+
+    <div class="recent-sales">
+      <h3>آخر المبيعات</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>المعرف</th>
+            <th>العميل</th>
+            <th>السيارة</th>
+            <th>القيمة</th>
+            <th>الحالة</th>
+            <th>الاستلام</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SL-001</td>
+            <td>Alex Johnson</td>
+            <td>Toyota Camry 2023</td>
+            <td>$28500</td>
+            <td><span class="badge completed">مكتملة</span></td>
+            <td><span class="badge completed">تم</span></td>
+          </tr>
+          <tr>
+            <td>SL-002</td>
+            <td>Maria Garcia</td>
+            <td>Honda Civic 2022</td>
+            <td>$22400</td>
+            <td><span class="badge processing">قيد المعالجة</span></td>
+            <td><span class="badge pending">قيد الانتظار</span></td>
+          </tr>
+          <tr>
+            <td>SL-003</td>
+            <td>James Wilson</td>
+            <td>Ford F-150 2023</td>
+            <td>$45000</td>
+            <td><span class="badge completed">مكتملة</span></td>
+            <td><span class="badge completed">تم</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

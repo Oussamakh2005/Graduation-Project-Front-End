@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>إدارة المستخدمين</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"  href="../../css/dashboard/admin/users.css"/>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div>
+      <h2><i class="fas fa-car"></i> لوحة المشرف</h2>
+      <ul>
+        <li><a href="./dashboard.html"><i class="fas fa-chart-line"></i> لوحة التحكم</a></li>
+        <li><a href="./cars.html"><i class="fas fa-car-side"></i> السيارات</a></li>
+        <li class="active"><a href="#"><i class="fas fa-users"></i> المستخدمون</a></li>
+        <li><i class="fas fa-hand-holding-usd"></i> المبيعات</li>
+        <li><i class="fas fa-cog"></i> الإعدادات</li>
+      </ul>
+    </div>
+    <div class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
+  </div>
+
+  <div class="main">
+    <div class="dashboard-header">إدارة المستخدمين</div>
+    <a href="#" class="btn-add">إضافة مستخدم جديد</a>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>الاسم الأول</th>
+            <th>اللقب</th>
+            <th>البريد الإلكتروني</th>
+            <th>الدور</th>
+            <th>الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>USR-001</td>
+            <td>Alex</td>
+            <td>Johnson</td>
+            <td>alex@example.com</td>
+            <td><span class="badge">عميل</span></td>
+            <td>
+              <button class="btn btn-edit">تعديل الدور</button>
+              <button class="btn btn-delete">حذف</button>
+            </td>
+          </tr>
+          <!-- يمكن تكرار هذا السطر للمزيد من المستخدمين -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
