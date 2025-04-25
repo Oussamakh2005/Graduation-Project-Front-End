@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فشل التحقق من الحساب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main/login.css">
+</head>
+
+<body>
+
+    <div class="toggle-mode">
+        <button id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+            <span>الوضع الليلي</span>
+        </button>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <div class="login-container" id="verifyFailBox">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="شعار الشركة" />
+        </div>
+        <h2 style="color: #e74c3c;">فشل التحقق من الحساب</h2>
+        <p style="text-align: center; margin: 15px 0; font-size: 1.1rem;">
+            رابط التحقق غير صالح أو منتهي الصلاحية. الرجاء المحاولة مرة أخرى أو طلب رابط جديد.
+        </p>
+        <button onclick="window.location.href='./login.html'" style="margin-top: 20px;">
+            <a href="./login.html">
+                <i class="fas fa-arrow-right-to-bracket"></i> العودة إلى تسجيل الدخول
+            </a>
+        </button>
+    </div>
+
+    <script src="../js/utils/darkMode.js"></script>
+</body>
+
+</html>

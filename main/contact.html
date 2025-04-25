@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>اتصل بنا</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/main/concat.css">
 </head>
+
 <body>
   <nav>
     <div class="logo">
       <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="الشعار" />
-      <span>بيع السيارات</span>
+      <h1>بيع السيارات</h1>
     </div>
-    <ul>
-      <li><a href="./login.html">تسجيل الدخول</a></li>
+
+    <!-- Burger Icon -->
+    <button class="burger" id="burgerToggle" aria-label="فتح القائمة">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Links -->
+    <ul class="nav-links">
+      <li><a href="./mlogin.html">تسجيل الدخول</a></li>
       <li><a href="./home.html">الرئيسية</a></li>
       <li><a href="#">اتصل بنا</a></li>
       <li><a href="../index.html">من نحن</a></li>
+    </ul>
   </nav>
 
   <div class="toggle-mode">
-    <button id="darkModeToggle" >
+    <button id="darkModeToggle">
       <i class="fas fa-moon"></i>
       <span>الوضع الليلي</span>
     </button>
@@ -31,7 +41,8 @@
   <div class="container">
     <h1>اتصل بنا</h1>
     <p class="contact-description">
-      يسعدنا تواصلك معنا! سواء كان لديك استفسار، اقتراح، أو ترغب في معرفة المزيد عن خدماتنا، لا تتردد في إرسال رسالة أو الاتصال بنا مباشرة.
+      يسعدنا تواصلك معنا! سواء كان لديك استفسار، اقتراح، أو ترغب في معرفة المزيد عن خدماتنا، لا تتردد في إرسال رسالة أو
+      الاتصال بنا مباشرة.
     </p>
 
     <div class="contact-layout">
@@ -64,5 +75,7 @@
     </div>
   </footer>
   <script src="../js/utils/darkMode.js"></script>
+  <script src="../js/utils/dropDown.js"></script>
 </body>
+
 </html>

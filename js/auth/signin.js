@@ -21,7 +21,20 @@ signBtn.addEventListener("click",async() => {
         const data = await response.json();
         if(data.ok){
             localStorage.setItem("token",data.data);
-            window.location.href = "./home.html";
+            switch(data.role){
+                case "ADMIN" :
+                    window.location.href = "../dashboard/admin/dashboard.html";
+                    break;
+                case "CLIENT" :
+                    window.location.href = "../dashboard/client/purchases.html";
+                    break;
+                case "PAYMENT" :
+                    window.location.href = "../dashboard/payments_manager/dashboard.html";
+                    break;
+                case "SALES" :
+                    window.location.href = "../dashboard/sales_manager/dashboard.html";
+                    break;
+            }
         }else{
             signBtn.disabled = false;
             signBtn.innerHTML = originalText;
