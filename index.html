@@ -11,7 +11,7 @@
 <body>
   <nav>
     <div class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="الشعار" />
+      <img src="https://i.postimg.cc/wBK5RsXH/light-logo-removebg-preview.png" alt="الشعار" id="logo-img"/>
       <h1>بيع السيارات</h1>
     </div>
   
@@ -21,8 +21,9 @@
     </button>
   
     <!-- Links -->
-    <ul class="nav-links">
-      <li><a href="./main/login.html">تسجيل الدخول</a></li>
+    <ul class="nav-links" id="nav-links">
+     <!-- <li><a href="./main/login.html">لوحة التحكم</a></li>
+      <li><a href="./main/login.html">تسجيل الدخول</a></li>-->
       <li><a href="./main/home.html">الرئيسية</a></li>
       <li><a href="./main/contact.html">اتصل بنا</a></li>
       <li><a href="#">من نحن</a></li>
@@ -79,6 +80,9 @@
     <p><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</p>
     <p style="margin-top: 20px;">&copy; 2025 بيع السيارات - جميع الحقوق محفوظة</p>
   </footer>
+  <script type="module" src="./js/utils/config.js"></script>
+  <script type="module" src="./js/auth/auhenticated.js"></script>
+  <script type="module" src="./js/auth/checkIfUserAuthenticated.js"></script>
   <script src="./js/utils/darkMode.js"></script>
   <script src="./js/utils/dropDown.js"></script>
 </body>

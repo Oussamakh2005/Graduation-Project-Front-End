@@ -1,41 +1,55 @@
-// Dark Mode Toggle Functionality
+
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
+    const icon = darkModeToggle.querySelector('i');
+    const text = darkModeToggle.querySelector('span');
+    const logoImg = document.getElementById('logo-img');
     
-    // Check for saved theme preference or respect OS preference
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const storedTheme = localStorage.getItem('theme');
+    // Check for saved dark mode preference
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
     
-    // If the user has explicitly chosen a theme, use it
-    if (storedTheme) {
-        body.classList.toggle('dark-mode', storedTheme === 'dark');
-        updateToggleIcon(storedTheme === 'dark');
-    } 
-    // Otherwise, use their OS preference
-    else if (prefersDarkScheme.matches) {
-        body.classList.add('dark-mode');
-        updateToggleIcon(true);
+    // Apply initial mode
+    if (isDarkMode) {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
     }
     
     // Toggle dark mode on button click
     darkModeToggle.addEventListener('click', function() {
-        const isDarkMode = body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        updateToggleIcon(isDarkMode);
+      if (body.classList.contains('dark-mode')) {
+        disableDarkMode();
+      } else {
+        enableDarkMode();
+      }
     });
     
-    // Update the toggle button icon and text
-    function updateToggleIcon(isDarkMode) {
-        const icon = darkModeToggle.querySelector('i');
-        const text = darkModeToggle.querySelector('span');
-        
-        if (isDarkMode) {
-            icon.className = 'fas fa-sun';
-            text.textContent = 'الوضع النهاري';
-        } else {
-            icon.className = 'fas fa-moon';
-            text.textContent = 'الوضع الليلي';
-        }
+    // Function to enable dark mode
+    function enableDarkMode() {
+      body.classList.add('dark-mode');
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+      text.textContent = 'الوضع النهاري';
+      localStorage.setItem('darkMode', 'true');
+      
+      // Change logo to dark mode version
+      if (logoImg) {
+        logoImg.src = "https://i.postimg.cc/x1kDTBRh/dark-logo-removebg-preview.png";
+      }
     }
-});
+    
+    // Function to disable dark mode
+    function disableDarkMode() {
+      body.classList.remove('dark-mode');
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+      text.textContent = 'الوضع الليلي';
+      localStorage.setItem('darkMode', 'false');
+      
+      // Change logo to light mode version
+      if (logoImg) {
+        logoImg.src = "https://i.postimg.cc/wBK5RsXH/light-logo-removebg-preview.png";
+      }
+    }
+  });

@@ -19,7 +19,7 @@ if (!toastContainer) {
  * @param {string} type - The type of toast (success, error, info, warning)
  * @param {number} duration - Duration in milliseconds (default: 5000ms)
  */
- function showToast(message, type = 'info', duration = 5000) {
+export function showToast(message, type = 'info', duration = 5000) {
   // Create toast element
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;

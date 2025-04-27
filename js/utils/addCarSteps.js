@@ -1,128 +1,96 @@
+import { initializeCar } from '../dashboard/upload_car/initializeCar.js';
+import { uploadEngineData } from '../dashboard/upload_car/uploadEngineData.js';
+import {uploadFeatures} from '../dashboard/upload_car/uploadFeatures.js';
 
-let currentStep = 1;
-const totalSteps = 3;
+const steps = document.querySelectorAll('.step');
+const progressSteps = document.querySelectorAll('.progress-step');
+const nextBtn = document.getElementById('nextBtn');
+//const prevBtn = document.getElementById('prevBtn');
+const submitBtn = document.getElementById('submitBtn');
+const carForm = document.getElementById('carForm');
+const uploadBtn = document.getElementById('upload-btn');
+let carId = '';
+let currentStep = 0;
+nextBtn.disabled = true;
+const originalText = uploadBtn.innerHTML;
+uploadBtn.addEventListener('click', async () => {
+  uploadBtn.disabled = true;
+  uploadBtn.innerHTML = `<span class="spinner"></span> جاري التحميل ....`;
+  switch (currentStep) {
+    case 0:
+      carId = await initializeCar();
+      break;
+    case 1:
+      carId = await uploadEngineData(carId);
+      break;
+    case 2:
+      carId = await uploadFeatures(carId);
+      break;
+    case 3 :
+      break;
+  }
+  if (carId) {
+    nextBtn.disabled = false;
+  }else{
+    uploadBtn.disabled = false;
+  }
+  uploadBtn.innerHTML = originalText;
+})
+nextBtn.addEventListener('click', () => {
+  nextBtn.disabled = true;
+  uploadBtn.disabled = false;
+  if (currentStep < steps.length - 1) {
+    steps[currentStep].classList.remove('active');
+    progressSteps[currentStep].classList.remove('active');
+    progressSteps[currentStep].classList.add('completed');
+    currentStep++;
+    steps[currentStep].classList.add('active');
+    progressSteps[currentStep].classList.add('active');
+    updateButtons();
+  }
+});
 
-// Show step function
-const showStep = (step) => {
-    // Update steps visibility
-    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-    document.getElementById(`step-${step}`).classList.add('active');
+/*prevBtn.addEventListener('click', () => {
+  if (currentStep > 0) {
+    steps[currentStep].classList.remove('active');
+    progressSteps[currentStep].classList.remove('active');
+    currentStep--;
+    steps[currentStep].classList.add('active');
+    progressSteps[currentStep].classList.remove('completed');
+    progressSteps[currentStep].classList.add('active');
+    updateButtons();
+  }
+});*/
 
-    // Update progress indicators
-    document.querySelectorAll('.progress-step').forEach((el, index) => {
-        const stepNum = index + 1;
-        el.classList.remove('active', 'completed');
+carForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('تم إضافة السيارة بنجاح!');
+  carForm.reset();
+  location.reload();
+});
 
-        if (stepNum === step) {
-            el.classList.add('active');
-        } else if (stepNum < step) {
-            el.classList.add('completed');
-            el.innerHTML = '<i class="fas fa-check"></i>';
-        } else {
-            el.textContent = stepNum;
-        }
-    });
+function updateButtons() {
+  //prevBtn.style.display = currentStep === 0 ? 'none' : 'inline-flex';
+  nextBtn.style.display = currentStep === steps.length - 1 ? 'none' : 'inline-flex';
+  submitBtn.style.display = currentStep === steps.length - 1 ? 'inline-flex' : 'none';
+}
 
-    // Update buttons
-    document.getElementById('prevBtn').style.display = step === 1 ? 'none' : 'flex';
-    document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : 'flex';
-    document.getElementById('submitBtn').style.display = step === totalSteps ? 'flex' : 'none';
-};
+// استعراض الصور بعد الرفع
+const imagesInput = document.getElementById('images');
+const previewContainer = document.getElementById('preview');
 
-// Next button event
-document.getElementById('nextBtn').addEventListener('click', () => {
-    // Validate current step
-    const currentStepElement = document.getElementById(`step-${currentStep}`);
-    const inputs = currentStepElement.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-
-    inputs.forEach(input => {
-        if (!input.value) {
-            isValid = false;
-            input.style.borderColor = 'red';
-            input.style.boxShadow = '0 0 0 2px rgba(255, 0, 0, 0.2)';
-        } else {
-            input.style.borderColor = '';
-            input.style.boxShadow = '';
-        }
-    });
-
-    if (isValid && currentStep < totalSteps) {
-        currentStep++;
-        showStep(currentStep);
+imagesInput.addEventListener('change', function () {
+  previewContainer.innerHTML = '';
+  Array.from(this.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.className = 'image-preview';
+      previewContainer.appendChild(img);
     }
+    reader.readAsDataURL(file);
+  });
 });
 
-// Previous button event
-document.getElementById('prevBtn').addEventListener('click', () => {
-    if (currentStep > 1) {
-        currentStep--;
-        showStep(currentStep);
-    }
-});
-
-// Form submission
-document.getElementById('carForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    console.log("Form Data:", data);
-
-    // Show success message
-    const formContainer = document.querySelector('.form-container');
-    formContainer.innerHTML = `
-        <div style="text-align: center; padding: 40px;">
-          <div style="font-size: 60px; color: var(--success); margin-bottom: 20px;">
-            <i class="fas fa-check-circle"></i>
-          </div>
-          <h2 style="font-size: 24px; margin-bottom: 15px; color: var(--success);">تم حفظ بيانات السيارة بنجاح!</h2>
-          <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 30px;">تمت إضافة السيارة الجديدة إلى قاعدة البيانات</p>
-          <button type="button" class="btn btn-primary" onclick="window.location.reload()">
-            <i class="fas fa-plus"></i> إضافة سيارة أخرى
-          </button>
-        </div>
-      `;
-});
-
-// File upload preview for main image
-document.getElementById('mainImageUpload').addEventListener('click', () => {
-    document.getElementById('mainImage').click();
-});
-
-document.getElementById('mainImage').addEventListener('change', function (e) {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const previewContainer = document.getElementById('mainImagePreview');
-            previewContainer.innerHTML = `<img src="${e.target.result}" class="image-preview" alt="Main car image">`;
-        }
-        reader.readAsDataURL(file);
-    }
-});
-
-// File upload preview for additional images
-document.getElementById('additionalImagesUpload').addEventListener('click', () => {
-    document.getElementById('additionalImages').click();
-});
-
-document.getElementById('additionalImages').addEventListener('change', function (e) {
-    const files = e.target.files;
-    const previewContainer = document.getElementById('additionalImagesPreview');
-    //previewContainer.innerHTML = '';
-
-    for (const [i, file] of Array.from(files).slice(0, 5).entries()) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.className = 'image-preview';
-            img.alt = `Car image ${i + 1}`;
-            previewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    }    
-});
-
-// Initialize
-showStep(currentStep);
+updateButtons();

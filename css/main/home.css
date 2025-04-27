@@ -20,19 +20,25 @@ nav {
   position: relative;
 }
 
-nav .logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-nav .logo img {
-  height: 40px;
+.logo h1 {
+  font-size: 22px;
+  margin: 0;
+  display: inline-block;
+}
+
+.logo img {
+  height: 80px;
 }
 
 nav ul {
-  display: flex;
   list-style: none;
+  display: flex;
   gap: 20px;
 }
 
@@ -149,9 +155,6 @@ body.dark-mode nav a:hover {
   color: #ffffff;
 }
 
-body.dark-mode nav ul {
-  background-color: #2c2c2c;
-}
 
 body.dark-mode nav ul li a {
   color: #eee;
@@ -176,6 +179,9 @@ body.dark-mode nav ul li a:hover {
 }
 
 .hero {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 15px;
   background-image: url('https://i.postimg.cc/rmmdkQzz/hero3.jpg');
   background-size: cover;
   background-position: center;
