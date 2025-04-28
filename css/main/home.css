@@ -176,6 +176,7 @@ body.dark-mode nav ul li a:hover {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  
 }
 
 .hero {
@@ -304,6 +305,32 @@ body.dark-mode nav ul li a:hover {
   background-color: #218838;
 }
 
+.no-content {
+  text-align: center;
+  padding: 50px 20px;
+  color: #555;
+}
+
+.no-content img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.no-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: 'Cairo', sans-serif;
+}
+
+.no-content p {
+  font-size: 18px;
+  color: #777;
+  font-family: 'Cairo', sans-serif;
+}
+
 footer {
   background-color: #007bff;
   color: white;
@@ -339,6 +366,9 @@ footer .copy {
 
   .sidebar {
     width: 100%;
+  }
+  body.dark-mode nav ul li a {
+    color: #000;
   }
 }
 
@@ -442,4 +472,11 @@ body.dark-mode .rating i.fas.fa-star,
 body.dark-mode .rating i.far.fa-star,
 body.dark-mode .rating i.fas.fa-star-half-alt {
   color: gold !important;
+}
+body.dark-mode .no-content p {
+  color: #ffffff;
+}
+
+body.dark-mode .no-content h2 {
+  color: #ffffff;
 }

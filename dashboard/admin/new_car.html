@@ -135,11 +135,11 @@
         <div class="step" data-step="4">
           <div class="form-section-title">رفع الصور</div>
 
-          <div class="file-upload-container" onclick="document.getElementById('images').click()">
+          <div class="file-upload-container" onclick="document.getElementById('image').click()">
             <i class="fas fa-upload file-upload-icon"></i>
             <div class="file-upload-text">اضغط لرفع الصور</div>
-            <div class="file-upload-hint">PNG, JPG حتى ٥ ميجا لكل صورة</div>
-            <input type="file" id="images" name="images" class="hidden-file-input" multiple accept="image/*">
+            <div class="file-upload-hint">JPEG, JPG حتى ٥ ميجا لكل صورة</div>
+            <input type="file" id="image" name="image" class="hidden-file-input"  accept="image/*">
           </div>
 
           <div id="preview" class="preview-container"></div>
@@ -163,6 +163,7 @@
   <script type="module" src="../../js/utils/showToast.js"></script>
   <script type="module" src="../../js/dashboard/upload_car/initializeCar.js"></script>
   <script type="module" src="../../js/dashboard/upload_car/uploadEngineData.js"></script>
+  <script type="module" src="../../js/dashboard/upload_car/uploadFeatures.js"></script>
   <script type="module" src="../../js/dashboard/upload_car/uploadFeatures.js"></script>
   <script type="module" src="../../js/utils/addCarSteps.js"></script>
 </body>

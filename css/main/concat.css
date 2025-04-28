@@ -131,6 +131,9 @@ nav .burger:hover {
   .burger {
       display: flex;
   }
+  body.dark-mode nav ul li a {
+    color: #000;
+  }
 }
 
 /* Dropdown animation */

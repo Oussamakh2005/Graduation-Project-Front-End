@@ -76,7 +76,7 @@ nav ul li a:hover {
 
 /* Burger styling */
 nav .burger {
-  font-size: large;
+    font-size: large;
     color: #fff;
     padding: 10px;
     border: none;
@@ -140,6 +140,7 @@ nav .burger:hover {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -294,6 +295,11 @@ footer .copy {
     .about-section {
         flex-direction: column;
     }
+
+    body.dark-mode nav ul li a {
+        color: #000;
+    }
+
 }
 
 /* Footer Dark Mode */

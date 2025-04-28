@@ -4,6 +4,7 @@ import {config} from "../utils/config.js"
 let navLinks ='';
 const data = await checkUserAuthenticated(`${config.API_URL}/api/user/auhtenticated`);
 if(!data || !data.ok){
+    localStorage.removeItem('token');
     navLinks = `<li><a href="./login.html">تسجيل الدخول</a></li>`;
     navLinks += document.getElementById('nav-links').innerHTML;
     document.getElementById('nav-links').innerHTML = navLinks;

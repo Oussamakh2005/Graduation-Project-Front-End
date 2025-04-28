@@ -1,4 +1,5 @@
 import { config } from "../utils/config.js";
+import { showToast } from "../utils/showToast.js";
 const signupBtn = document.getElementById("signup-btn");
 signupBtn.addEventListener("click", async () => {
     const originalText = signupBtn.innerHTML;

@@ -360,6 +360,10 @@ body.dark-mode .related-card {
     .car-info {
         width: 50%;
     }
+
+    body.dark-mode nav ul li a {
+        color: #000;
+    }
 }
 
 footer {

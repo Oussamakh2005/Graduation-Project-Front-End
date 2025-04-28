@@ -1,6 +1,7 @@
 import { initializeCar } from '../dashboard/upload_car/initializeCar.js';
 import { uploadEngineData } from '../dashboard/upload_car/uploadEngineData.js';
 import {uploadFeatures} from '../dashboard/upload_car/uploadFeatures.js';
+import {uploadCarImage} from '../dashboard/upload_car/uploadCarImage.js';
 
 const steps = document.querySelectorAll('.step');
 const progressSteps = document.querySelectorAll('.progress-step');
@@ -27,6 +28,7 @@ uploadBtn.addEventListener('click', async () => {
       carId = await uploadFeatures(carId);
       break;
     case 3 :
+      carId = await uploadCarImage(carId);
       break;
   }
   if (carId) {
@@ -76,7 +78,7 @@ function updateButtons() {
 }
 
 // استعراض الصور بعد الرفع
-const imagesInput = document.getElementById('images');
+const imagesInput = document.getElementById('image');
 const previewContainer = document.getElementById('preview');
 
 imagesInput.addEventListener('change', function () {
