@@ -359,19 +359,6 @@ footer .copy {
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-  body.dark-mode nav ul li a {
-    color: #000;
-  }
-}
-
 /* Existing CSS styles would be here - I'm adding the dark mode styles */
 
 /* Dark Mode Toggle Button Styles */
@@ -409,6 +396,10 @@ body.dark-mode nav a {
 
 body.dark-mode nav a:hover {
   color: #ffffff;
+}
+
+body.dark-mode nav ul li a {
+  color: #eee;
 }
 
 /* Hero Section Dark Mode */
@@ -479,4 +470,18 @@ body.dark-mode .no-content p {
 
 body.dark-mode .no-content h2 {
   color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+  
+  body.dark-mode nav ul li a {
+    color: #000;
+  }
 }

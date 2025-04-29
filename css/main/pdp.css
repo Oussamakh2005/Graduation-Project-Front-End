@@ -257,6 +257,9 @@ body.dark-mode .container {
     align-items: center;
     gap: 8px;
 }
+.features-contianer {
+    padding: 20px;
+}
 
 body.dark-mode .feature {
     background: #3a3a3a;
@@ -342,29 +345,7 @@ body.dark-mode .related-card {
     border-color: #666;
 }
 
-@media (min-width: 768px) {
-    .car-header {
-        flex-direction: row;
-    }
 
-    .car-image {
-        width: 100%;
-        object-fit: cover;
-    }
-
-    .image-container {
-        width: 50%;
-        padding: 20px;
-    }
-
-    .car-info {
-        width: 50%;
-    }
-
-    body.dark-mode nav ul li a {
-        color: #000;
-    }
-}
 
 footer {
     background-color: #007bff;
@@ -402,6 +383,10 @@ body.dark-mode nav a:hover {
     color: #ffffff;
 }
 
+body.dark-mode nav ul li a {
+    color: #eee;
+}
+
 body.dark-mode footer {
     background-color: #004080;
 }
@@ -420,4 +405,78 @@ body.dark-mode footer {
 .swiper-slide img {
     width: 100%;
     border-radius: 10px;
+}
+
+/*for not found */
+.error-container {
+    text-align: center;
+    padding: 50px 20px;
+    margin: 50px auto;
+    max-width: 800px;
+  }
+  
+  .error-code {
+    font-size: 120px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e74c3c;
+  }
+  
+  .error-message {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .error-description {
+    font-size: 18px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  
+  .back-home {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .back-home:hover {
+    background-color: #2980b9;
+  }
+  
+  .error-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    color: #e74c3c;
+  }
+
+  @media (min-width: 768px) {
+    .car-header {
+        flex-direction: row;
+    }
+
+    .car-image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image-container {
+        width: 50%;
+        padding: 20px;
+    }
+
+    .car-info {
+        width: 50%;
+    }
+
+}
+@media (max-width: 768px) {
+
+    body.dark-mode nav ul li a {
+        color: #000;
+    }
 }

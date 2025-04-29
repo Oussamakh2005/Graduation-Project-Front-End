@@ -39,16 +39,16 @@
     </button>
   </div>
 
-  <div class="container">
+  <div class="container" id="container">
     <div class="car-header">
       <div class="image-container">
-        <img class="car-image" src="https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_960_720.jpg"
+        <img class="car-image" id="car-image" src="https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_960_720.jpg"
           alt="سيارة رئيسية">
       </div>
-      <div class="car-info">
-        <h1 class="car-title">تويوتا كورولا 2023</h1>
-        <p class="car-price">150 ريال</p>
-        <div class="car-rating">
+      <div class="car-info" id="car-info">
+        <h1 class="car-title" id="model">تويوتا كورولا 2023</h1>
+        <p class="car-price" id="price">150 ريال</p>
+        <!--<div class="car-rating">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -57,37 +57,25 @@
         </div>
         <p class="car-description">
           سيارة مريحة واقتصادية مثالية للتنقل داخل المدينة، مزودة بأحدث أنظمة الأمان ومناسبة للعائلات.
-        </p>
-        <div class="features">
-          <div class="feature"><i class="fas fa-cogs"></i> أوتوماتيك</div>
-          <div class="feature"><i class="fas fa-gas-pump"></i> بنزين</div>
-          <div class="feature"><i class="fas fa-user-friends"></i> 5 مقاعد</div>
-          <div class="feature"><i class="fas fa-snowflake"></i> مكيف هواء</div>
-          <div class="feature"><i class="fas fa-map-marker-alt"></i> GPS</div>
+        </p>-->
+        <div class="features" id="features">
         </div>
 
-        <table class="specs-table">
-          <tr>
-            <th>نوع الوقود</th>
-            <td>بنزين</td>
-          </tr>
-          <tr>
-            <th>سعة المحرك</th>
-            <td>1.6 لتر</td>
-          </tr>
-          <tr>
-            <th>ناقل الحركة</th>
-            <td>أوتوماتيك</td>
-          </tr>
-          <tr>
-            <th>عدد المقاعد</th>
-            <td>5</td>
-          </tr>
-          <tr>
-            <th>عدد الأبواب</th>
-            <td>4</td>
-          </tr>
+        <table class="specs-table" id="specs-table">
         </table>
+        <div class="features-contianer">
+          <h3>الألوان المتوفرة:</h3>
+          <ul class="colors-list" id="colors-list">
+          </ul>
+        </div>
+        <div class="features-contianer" >
+          <h3>المميزات:</h3>
+          <ul class="features-list" id="features-list">
+            <!--<li>نظام GPS</li>
+            <li>WiFi داخلي</li>
+            <li>وسائد هوائية</li>-->
+          </ul>
+        </div>
 
         <button class="reserve-btn">احجز الآن</button>
       </div>
@@ -167,6 +155,7 @@
   <script type="module" src="../js/utils/config.js"></script>
   <script type="module" src="../js/auth/auhenticated.js"></script>
   <script type="module" src="../js/auth/checkIfUserAuthenticatedForMain.js"></script>
+  <script type="module" src="../js/browseCars/showCarDetails.js"></script>
   <script src="../js/utils/darkMode.js"></script>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
