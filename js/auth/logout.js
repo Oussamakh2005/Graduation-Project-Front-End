@@ -3,5 +3,5 @@ logoutBatn.addEventListener("click", () => {
     if(localStorage.getItem("token")){
         localStorage.removeItem("token");
     }
-    window.location.href = "../../main/login.html";
+    window.location.href = "../../index.html";
 });

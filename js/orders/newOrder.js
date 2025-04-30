@@ -73,7 +73,6 @@ confirmColorBtn.addEventListener('click', async() => {
             showToast("فشل إرسال الطلب يرجى إعادة المحاولة لاحقا", "error");
         }
     } catch (error) {
-        console.log(error);
         showToast("حدث خطأ ما غير متوقع يرجى إعادة المحاولة لاحقا", "error");
     }finally{
         confirmColorBtn.disabled = false;
