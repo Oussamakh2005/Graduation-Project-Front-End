@@ -44,6 +44,8 @@ function renderCarDetails(data) {
     const specsTable = document.getElementById('specs-table');
     const colorList = document.getElementById('colors-list');
     const featuresList = document.getElementById('features-list');
+    const colorsOptions = document.getElementById('color-options');
+
     //set image :
     image.src = data.mainImage;
     model.innerText = data.model;
@@ -53,6 +55,7 @@ function renderCarDetails(data) {
           <div class="feature"><i class="fas fa-cogs"></i> ${setTransmission()}</div>
           <div class="feature"><i class="fas fa-gas-pump"></i> ${setFuleType(data.engine[0].type)}</div>
           <div class="feature"><i class="fas fa-road"></i> ${setDriveType(data.driveType)}</div>
+          <div class="feature"><i class="fa-solid fa-gauge"></i>${data.maxSpeed}</div>
     `
     //set specs table :
     specsTable.innerHTML = `
@@ -70,11 +73,11 @@ function renderCarDetails(data) {
           </tr>
           <tr>
             <th>عدد المقاعد</th>
-            <td>5</td>
+            <td>${data.doors}</td>
           </tr>
           <tr>
             <th>عدد الأبواب</th>
-            <td>4</td>
+            <td>${data.seats}</td>
           </tr>
           <tr>
             <th>سنة الصنع</th>
@@ -85,13 +88,19 @@ function renderCarDetails(data) {
             <td>${data.type}</td>
           </tr>
           <tr>
-            <th>max speed </th>
-            <td>${data.type}</td>
+            <th>السرعه القصوى </th>
+            <td>${data.maxSpeed} كلم/ساعه</td>
           </tr>
     `;
     //set colors :
     for(let color of data.colors){
       colorList.innerHTML += `<li>${color}</li>`;
+      colorsOptions.innerHTML += `
+            <div class="radio-option">
+            <input type="radio" name="carColor" value="${color}">
+            <label>${color}</label>
+           </div>
+      `;
     }
     for(let feature of data.features){
       featuresList.innerHTML += `<li>${feature}</li>`;

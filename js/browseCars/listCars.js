@@ -10,7 +10,7 @@ try {
         const carListContainer = document.getElementById("car-list");
         for (const car of cars){ 
             carlist += `
-                  <div class="car-card" data-price="high" data-fuel="${car.engine[0].type}" data-transmission="${car.transmission}" data-seats="7">
+                  <div class="car-card" data-price="high" data-fuel="${car.engine[0].type}" data-transmission="${car.transmission}" data-seats="${car.seats}">
         <img src="${car.mainImage}" alt="${car.model}" />
         <div class="info">
           <h4>${car.model}</h4>

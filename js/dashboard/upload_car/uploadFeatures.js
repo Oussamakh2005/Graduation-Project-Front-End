@@ -4,6 +4,9 @@ export const uploadFeatures = async (carModelId) => {
     const token = localStorage.getItem('token');
     const colors = document.getElementById("colors").value.split(',');
     const features = document.getElementById("features").value.split(',');
+    const seats = parseInt(document.getElementById("seats").value);
+    const doors = parseInt(document.getElementById("doors").value);
+    const maxSpeed = parseInt(document.getElementById("max-speed").value);
     try{
         const response = await fetch(`${config.API_URL}/api/car/feature/${carModelId}`,{
             method : 'PUT',
@@ -12,6 +15,9 @@ export const uploadFeatures = async (carModelId) => {
                 'Authorization' : `${token}`
             },
             body : JSON.stringify({
+                maxSpeed,
+                seats,
+                doors,
                 colors,
                 features,
             }),

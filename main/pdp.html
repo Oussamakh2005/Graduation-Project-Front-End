@@ -10,6 +10,8 @@
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="../css/main/pdp.css">
+  <link rel="stylesheet" type="text/css" href="../css//component/toast.css" />
+  <link rel="stylesheet" type="text/css" href="../css//component/spinner.css" />
 </head>
 
 <body>
@@ -68,16 +70,13 @@
           <ul class="colors-list" id="colors-list">
           </ul>
         </div>
-        <div class="features-contianer" >
+        <div class="features-contianer">
           <h3>المميزات:</h3>
           <ul class="features-list" id="features-list">
-            <!--<li>نظام GPS</li>
-            <li>WiFi داخلي</li>
-            <li>وسائد هوائية</li>-->
           </ul>
         </div>
 
-        <button class="reserve-btn">احجز الآن</button>
+        <button class="reserve-btn" id="show-dialog-btn">أطلب الآن</button>
       </div>
     </div>
     <div class="gallery">
@@ -143,7 +142,25 @@
       </div>
     </div>
   </div>
-
+  <!-- Color Selection Dialog with Radio Inputs -->
+  <div id="color-dialog" class="dialog-overlay">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2>اختر لون السيارة</h2>
+        <button id="close-dialog" class="close-btn">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <p>الرجاء اختيار اللون المفضل لديك:</p>
+        <div class="color-options" id="color-options">
+          <!-- Radio inputs will be populated here dynamically -->
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button id="confirm-color" class="confirm-btn">تأكيد الطلب</button>
+        <button id="cancel-color" class="cancel-btn">إلغاء</button>
+      </div>
+    </div>
+  </div>
   <footer>
     <div class="footer-content">
       <h3>معلومات الاتصال</h3>
@@ -157,6 +174,8 @@
   <script type="module" src="../js/auth/checkIfUserAuthenticatedForMain.js"></script>
   <script type="module" src="../js/browseCars/showCarDetails.js"></script>
   <script src="../js/utils/darkMode.js"></script>
+  <script type="module" src="../js/utils/showToast.js"></script>
+  <script type="module" src="../js/orders/newOrder.js"></script>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="../js/utils/swiper.js"></script>
