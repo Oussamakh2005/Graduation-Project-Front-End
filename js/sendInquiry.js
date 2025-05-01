@@ -1,4 +1,5 @@
-import { config } from './utils/config.js'
+import { config } from './utils/config.js';
+import {showToast} from './utils/showToast.js'
 const submitBtn = document.getElementById("submit");
 submitBtn.addEventListener('click', async () => {
     const originalText = submitBtn.innerHTML;
