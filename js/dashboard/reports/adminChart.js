@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
         const data = await response.json();
-        console.log(data);
         if (data.ok) {
             //create chart :
             const ctx = document.getElementById('salesChart').getContext('2d');

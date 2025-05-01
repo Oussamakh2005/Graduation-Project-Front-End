@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
         const data = await response.json();
-        console.log(data);
         if(data.ok){
             totalCarsCard.innerText = data.data.totalCars;
             totalUsersCard.innerText = data.data.totalUsers;
