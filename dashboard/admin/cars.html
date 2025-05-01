@@ -30,7 +30,7 @@
       <table>
         <thead>
           <tr>
-            <th>الرقم</th>
+            <th>المعرف</th>
             <th>الموديل</th>
             <th>السنة</th>
             <th>السعر</th>
@@ -38,7 +38,7 @@
             <th>العمليات</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="car-table-body">
           <tr>
             <td>CR-001</td>
             <td>Toyota Camry</td>
@@ -55,7 +55,7 @@
             <td>Honda Civic</td>
             <td>2022</td>
             <td>$22400</td>
-            <td><span class="badge sold">مباعة</span></td>
+            <td><span class="badge unavailable">غير متاحه</span></td>
             <td>
               <button class="btn btn-view">عرض</button>
               <button class="btn btn-delete">حذف</button>
@@ -68,5 +68,6 @@
   <script type="module" src="../../js/utils/config.js"></script>
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isAdmin.js"></script>
+  <script type="module" src="../../js/browseCars/listCarsTable.js"></script>
 </body>
 </html>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>إدارة المستخدمين</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet"  href="../../css/dashboard/admin/users.css"/>
+  <link rel="stylesheet" href="../../css/dashboard/admin/users.css" />
+  <link rel="stylesheet" href="../../css/component/spinner.css" />
+  <link rel="stylesheet" href="../../css/component/toast.css" />
 </head>
+
 <body>
 
   <div class="sidebar">
@@ -26,12 +30,18 @@
 
   <div class="main">
     <div class="dashboard-header">إدارة المستخدمين</div>
-    <a href="#" class="btn-add">إضافة مستخدم جديد</a>
+    <div class="actions-container">
+      <a href="#" class="btn-add">إضافة مستخدم جديد</a>
+      <div class="search-container">
+        <input type="text" id="email-search" placeholder="البحث بالبريد الإلكتروني" />
+        <button id="search-btn" class="btn-search"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>المعرف</th>
             <th>الاسم الأول</th>
             <th>اللقب</th>
             <th>البريد الإلكتروني</th>
@@ -39,25 +49,40 @@
             <th>الإجراءات</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>USR-001</td>
-            <td>Alex</td>
-            <td>Johnson</td>
-            <td>alex@example.com</td>
-            <td><span class="badge">عميل</span></td>
-            <td>
-              <button class="btn btn-edit">تعديل الدور</button>
-              <button class="btn btn-delete">حذف</button>
-            </td>
-          </tr>
+        <tbody id="user-table-body">
           <!-- يمكن تكرار هذا السطر للمزيد من المستخدمين -->
         </tbody>
       </table>
+    </div>
+    <!-- User Role Update Dialog -->
+    <div id="update-role-dialog" class="dialog-overlay">
+      <div class="dialog-content">
+        <h3>تعديل دور المستخدم</h3>
+        <form id="update-role-form">
+          <div class="form-group">
+            <label for="role-select">اختر الدور:</label>
+            <select id="role-select" name="role" class="form-control">
+              <option value="ADMIN">مشرف</option>
+              <option value="CLIENT">عميل</option>
+              <option value="PAYMENT">مدير مدفوعات</option>
+              <option value="SALES">مدير مبيعات</option>
+            </select>
+          </div>
+          <div class="dialog-buttons">
+            <button type="button" id="cancel-update" class="btn btn-secondary">إلغاء</button>
+            <button type="button" id="confirm-update" class="btn btn-primary">تأكيد</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   <script type="module" src="../../js/utils/config.js"></script>
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isAdmin.js"></script>
+  <script type="module" src="../../js/utils/showToast.js"></script>
+  <script type="module" src="../../js/dashboard/manageUsers/listAllusers.js"></script>
+  <script type="module" src="../../js/dashboard/manageUsers/filterUsersByEmail.js"></script>
+  <script type="module" src="../../js/dashboard/manageUsers/updateUserRole.js"></script>
 </body>
+
 </html>
