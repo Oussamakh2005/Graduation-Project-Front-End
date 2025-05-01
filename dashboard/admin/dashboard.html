@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../../css/dashboard/admin/dashboard.css" />
+  <link rel="stylesheet" href="../../css/component/toast.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -32,21 +33,21 @@
       <div class="card">
         <div class="info">
           <h3>إجمالي السيارات</h3>
-          <div class="value">90</div>
+          <div class="value" id="total-cars">90</div>
         </div>
         <div class="icon"><i class="fas fa-car"></i></div>
       </div>
       <div class="card">
         <div class="info">
           <h3>إجمالي المستخدمين</h3>
-          <div class="value">245</div>
+          <div class="value" id="total-users">245</div>
         </div>
         <div class="icon"><i class="fas fa-users"></i></div>
       </div>
       <div class="card">
         <div class="info">
           <h3>إجمالي المبيعات</h3>
-          <div class="value">$384K</div>
+          <div class="value" id="total-revenues">$384K</div>
         </div>
         <div class="icon"><i class="fas fa-dollar-sign"></i></div>
       </div>
@@ -68,7 +69,9 @@
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isAdmin.js"></script>
   <script type="module" src="../../js/auth/logout.js"></script>
-  <script src="../../js/dashboard/adminSalesChart.js"></script>
+  <script type="module" src="../../js/utils/showToast.js"></script>
+  <script type="module" src="../../js/dashboard/reports/adminHighlights.js"></script>
+  <script type="module" src="../../js/dashboard/reports/adminChart.js"></script>
 </body>
 
 </html>
