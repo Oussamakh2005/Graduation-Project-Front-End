@@ -1,4 +1,5 @@
 import { config } from "../utils/config.js";
+import { showToast } from "../../utils/showToast.js";
 try {
     const response = await fetch(`${config.API_URL}/api/car/all?skip=1`, {
         method: 'GET',
@@ -7,7 +8,7 @@ try {
     if (data.ok) {
         const cars = data.data;
         const carsTable = document.getElementById("car-table-body");
-        for (const car of cars){ 
+        for (const car of cars) {
             carsTable.innerHTML += `
           <tr>
             <td>${car.id}</td>
@@ -23,14 +24,15 @@ try {
             `
         };
 
-    }else{
+    } else {
         console.log(data.msg);
+        showToast("فشل الحصول على البيانات يرجى إعادة المحاولة", "error")
     }
 } catch (err) {
     console.log(err);
-    console.log("Error fetching cars");
+    showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
 }
 
-function setAvailabiltyStatus(status){
-    return status ? ` <span class="badge available">متوفرة</span>` :  `<span class="badge unavailable">غير متاحه</span>`
+function setAvailabiltyStatus(status) {
+    return status ? ` <span class="badge available">متوفرة</span>` : `<span class="badge unavailable">غير متاحه</span>`
 }

@@ -12,7 +12,8 @@ export async function authorized(apiUrl) {
             }
         });
         const data = await response.json();
-        if(!data.ok){
+        if (!data.ok) {
+            localStorage.removeItem("token");
             window.location.href = "../../main/login.html";
             return;
         }

@@ -7,12 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet"  href="../../css/dashboard/sales_manager/sales.css"/>
+  <link rel="stylesheet"  href="../../css/component/toast.css"/>
 </head>
 <body>
 
   <div class="sidebar">
     <div>
-      <h2><i class="fas fa-car"></i> لوحة المشرف</h2>
+      <h2><i class="fas fa-car"></i>بوابة المبيعات</h2>
       <ul>
         <li><a href="./dashboard.html"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
         <li class="active"><a href="#"><i class="fas fa-list"></i> قائمة المبيعات</a></li>
@@ -25,6 +26,12 @@
 
   <div class="main">
     <div class="dashboard-header">قائمة المبيعات</div>
+    <div class="actions-container">
+      <div class="search-container">
+        <input type="text" id="email-search" placeholder="أدخل معرف عملية البيع" />
+        <button id="search-btn" class="btn-search"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
 
     <div class="table-section">
       <table>
@@ -40,37 +47,7 @@
             <th>الإجراءات</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>#SL-001</td>
-            <td>Alex Johnson</td>
-            <td>Toyota Camry 2023</td>
-            <td>$28,500</td>
-            <td>2024-04-15</td>
-            <td><span class="badge completed">مكتملة</span></td>
-            <td><span class="badge completed">تم</span></td>
-            <td><button class="btn">عرض</button></td>
-          </tr>
-          <tr>
-            <td>#SL-002</td>
-            <td>Maria Garcia</td>
-            <td>Honda Civic 2022</td>
-            <td>$22,400</td>
-            <td>2024-04-14</td>
-            <td><span class="badge processing">قيد المعالجة</span></td>
-            <td><span class="badge pending">قيد الانتظار</span></td>
-            <td><button class="btn">عرض</button></td>
-          </tr>
-          <tr>
-            <td>#SL-003</td>
-            <td>Ahmed Nasser</td>
-            <td>Kia Sportage 2021</td>
-            <td>$19,000</td>
-            <td>2024-04-13</td>
-            <td><span class="badge pending">معلقة</span></td>
-            <td><span class="badge pending">قيد الانتظار</span></td>
-            <td><button class="btn">عرض</button></td>
-          </tr>
+        <tbody id="sale-table-body">
         </tbody>
       </table>
     </div>
@@ -78,5 +55,7 @@
   <script type="module" src="../../js/utils/config.js"></script>
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isSale.js"></script>
+  <script type="module" src="../../js/utils/showToast.js"></script>
+  <script type="module" src="../../js/dashboard/manageSales/listSales.js"></script>
 </body>
 </html>

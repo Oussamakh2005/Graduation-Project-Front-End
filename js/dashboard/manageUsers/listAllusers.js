@@ -1,4 +1,5 @@
 import { config } from "../../utils/config.js";
+import { showToast } from "../../utils/showToast.js";
 try {
     const token = localStorage.getItem('token');
     const response = await fetch(`${config.API_URL}/api/user/all`, {
@@ -27,12 +28,13 @@ try {
             `
         };
 
-    }else{
+    } else {
         console.log(data.msg);
+        showToast("فشل الحصول على البيانات يرجى إعادة المحاولة", "error")
     }
 } catch (err) {
     console.log(err);
-    console.log("Error fetching cars");
+    showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
 }
 
 function setUserRole(role) {
