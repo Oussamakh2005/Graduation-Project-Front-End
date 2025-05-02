@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الاستفسارات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/dashboard/sales_manager/sales.css" />
+    <link rel="stylesheet" href="../../css/dashboard/sales_manager/responseDialog.css" />
+    <link rel="stylesheet" href="../../css/component/toast.css" />
+    <link rel="stylesheet" href="../../css/component/spinner.css" />
+</head>
+<body>
+
+    <div class="sidebar">
+        <div>
+            <h2><i class="fas fa-car"></i>بوابة المبيعات</h2>
+            <ul>
+                <li><a href="./dashboard.html"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                <li><a href="./sales.html"><i class="fas fa-list"></i> قائمة المبيعات</a></li>
+                <li class="active"><i class="fa-solid fa-message"><a href="#"></i> الاستفسارات</a></li>
+                <li><i class="fas fa-file-alt"></i> التقارير</li>
+            </ul>
+        </div>
+        <div class="logout"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</div>
+    </div>
+
+    <div class="main">
+        <div class="dashboard-header">الاستفسارات</div>
+        <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>المعرف</th>
+                        <th>الاسم الكامل</th>
+                        <th>البريد الالكتروني</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="inquiry-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Message Response Modal -->
+    <div id="messageModal" class="message-modal">
+        <div class="message-modal-content">
+            <div class="message-header">
+                <h3>الرد على الاستفسار</h3>
+                <button class="close-modal" id="close-btn">&times;</button>
+            </div>
+            <div class="message-body">
+                <div class="customer-info" id="customerInfo"></div>
+                <div class="message-content" id="messageContent"></div>
+                <div>
+                    <label for="responseText">الرد:</label>
+                    <textarea id="responseText" class="response-area" placeholder="اكتب ردك هنا..."></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="confirm-btn" id="confirm-btn">إرسال الرد</button>
+                <button class="cancel-btn" id="cancel-btn">إلغاء</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../../js/utils/config.js"></script>
+    <script type="module" src="../../js/auth/authorized.js"></script>
+    <script type="module" src="../../js/auth/isSale.js"></script>
+    <script type="module" src="../../js/utils/showToast.js"></script>
+    <script type="module" src="../../js/dashboard/inquiries/listInquiries.js"></script>
+    <script type="module" src="../../js/dashboard/inquiries/respondInquiry.js"></script>
+</body>
+
+</html>
