@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //send response to the user email :
     confirmeBtn.addEventListener('click', async () => {
         const originalText = confirmeBtn.innerHTML;
-        confirmeBtn.innerHTML = `<span class="spinner"></span> جاري التسجيل...`;
+        confirmeBtn.innerHTML = `<span class="spinner"></span> جاري الارسال...`;
         confirmeBtn.disabled = true;
         const responseMessage = document.getElementById("responseText").value;
         const messageId = confirmeBtn.dataset.id;
