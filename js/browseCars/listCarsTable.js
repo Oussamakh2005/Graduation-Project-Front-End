@@ -1,5 +1,5 @@
 import { config } from "../utils/config.js";
-import { showToast } from "../../utils/showToast.js";
+import { showToast } from "../utils/showToast.js";
 try {
     const response = await fetch(`${config.API_URL}/api/car/all?skip=1`, {
         method: 'GET',
