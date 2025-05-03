@@ -14,7 +14,7 @@ try {
         const salesTable = document.getElementById("sale-table-body");
         for (const sale of sales) {
             salesTable.innerHTML += `
-          <tr data-id=${sale.id}>
+          <tr data-id=${sale.id} class="sales-row">
             <td>${sale.id}</td>
             <td>${sale.user.firstName + " " + sale.user.lastName}</td>
             <td>${sale.carModel.model}</td>
@@ -22,7 +22,7 @@ try {
             <td>${sale.saleDate}</td>
             <td>${setPaymentStatus(sale.paymentStatus)}</td>
             <td>${setPickUpStatus(sale.pickupStatus)}</td>
-            <td><button class="btn">عرض</button></td>
+            <td><a href="./sale.html?id=${sale.id}" class="btn">عرض</a></td>
           </tr>
             `
         };

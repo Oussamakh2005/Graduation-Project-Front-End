@@ -1,12 +1,12 @@
 import { config } from "../../utils/config.js";
 import { showToast } from "../../utils/showToast.js";
 document.addEventListener('DOMContentLoaded', async () => {
-    const totalCarsCard = document.getElementById("total-cars");
-    const totalUsersCard = document.getElementById("total-users");
-    const totalRevenuCard = document.getElementById("total-revenues");
+    const payedCarsCard = document.getElementById("payed-cars");
+    const delivredCarsCard = document.getElementById("deliverd-cars");
+    const totalRevenuCard = document.getElementById("total-revenu");
     const token = localStorage.getItem('token');
     try{
-        const response = await fetch(`${config.API_URL}/api/report/adminHighlights`, {
+        const response = await fetch(`${config.API_URL}/api/report/salesHighlights`, {
             method: 'GET',
             headers: {
                 'Authorization': `${token}`,
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         const data = await response.json();
         if(data.ok){
-            totalCarsCard.innerText = data.data.totalCars;
-            totalUsersCard.innerText = data.data.totalUsers;
+            payedCarsCard.innerText = data.data.payedCars;
+            delivredCarsCard.innerText = data.data.diliverdCars;
             totalRevenuCard.innerText = data.data.totalRevenu + " دينار"; 
         }else{
             showToast("فشل الحصول على البيانات يرجى إعادة المحاولة","error")

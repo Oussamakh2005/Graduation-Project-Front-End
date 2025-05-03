@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet"  href="../../css/dashboard/sales_manager/dashboard.css"/>
+  <link rel="stylesheet"  href="../../css/component/toast.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -30,16 +31,23 @@
       <div class="card">
         <div class="info">
           <h3>إجمالي المبيعات</h3>
-          <div class="value">$354K</div>
+          <div class="value" id="total-revenu">$354K</div>
         </div>
         <div class="icon"><i class="fas fa-dollar-sign"></i></div>
       </div>
       <div class="card">
         <div class="info">
           <h3>السيارات المباعة</h3>
-          <div class="value">42</div>
+          <div class="value" id="payed-cars">42</div>
         </div>
         <div class="icon"><i class="fas fa-car"></i></div>
+      </div>
+      <div class="card">
+        <div class="info">
+          <h3>السيارات المستلمه</h3>
+          <div class="value" id="deliverd-cars">5</div>
+        </div>
+        <div class="icon"><i class="fas fa-car-side"></i></div>
       </div>
       <div class="card">
         <div class="info">
@@ -48,13 +56,6 @@
         </div>
         <div class="icon"><i class="fas fa-user-plus"></i></div>
       </div>
-      <div class="card">
-        <div class="info">
-          <h3>الاستلامات المعلقة</h3>
-          <div class="value">5</div>
-        </div>
-        <div class="icon"><i class="fas fa-car-side"></i></div>
-      </div>
     </div>
 
     <div class="chart-section">
@@ -62,7 +63,7 @@
       <canvas id="salesChart"></canvas>
     </div>
 
-    <div class="pending-section">
+    <!--<div class="pending-section">
       <h3>الاستلامات المعلقة</h3>
       <div class="pickup">
         <div>
@@ -80,9 +81,9 @@
         </div>
         <button>تحديث الحالة</button>
       </div>
-    </div>
+    </div>-->
 
-    <div class="recent-sales">
+    <!--<div class="recent-sales">
       <h3>آخر المبيعات</h3>
       <table>
         <thead>
@@ -122,12 +123,14 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </div>-->
   </div>
   <script type="module" src="../../js/utils/config.js"></script>
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isSale.js"></script>
   <script type="module" src="../../js/auth/logout.js"></script>
-  <script src="../../js/dashboard/adminSalesChart.js"></script>
+  <script type="module" src="../../js/utils/showToast.js"></script> 
+  <script type="module" src="../../js/dashboard/reports/salesHighlights.js"></script>
+  <script type="module" src="../../js/dashboard/reports/salesChart.js"></script>
 </body>
 </html>
