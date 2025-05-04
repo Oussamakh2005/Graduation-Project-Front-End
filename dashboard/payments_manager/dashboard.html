@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet"  href="../../css/dashboard/payments_manager/dashboard.css"/>
+  <link rel="stylesheet" href="../../css/component/toast.css"/>
 </head>
 <body>
 
@@ -30,54 +31,34 @@
     <div class="cards">
       <div class="card">
         <h3>إجمالي المدفوعات</h3>
-        <div class="value">$120K</div>
+        <div class="value" id="total-revenues">$120K</div>
       </div>
       <div class="card">
-        <h3>المدفوعات المكتملة</h3>
-        <div class="value">96</div>
+        <h3>عمليات الدفع التكميلية</h3>
+        <div class="value" id="down-payments">96</div>
       </div>
       <div class="card">
-        <h3>المدفوعات المعلقة</h3>
-        <div class="value">14</div>
+        <h3>عمليات الدفع التكميلية</h3>
+        <div class="value" id="full-payments">14</div>
       </div>
       <div class="card">
         <h3>مدفوعات فاشلة</h3>
         <div class="value">3</div>
       </div>
     </div>
-
+    <h3>عمليات الدفع الأخيره</h3>
+    <br>
     <table class="payment-table">
       <thead>
         <tr>
           <th>المعرف</th>
           <th>العميل</th>
           <th>المبلغ</th>
-          <th>الحالة</th>
+          <th>نوع الدفعه</th>
           <th>التاريخ</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>PM-001</td>
-          <td>أحمد خالد</td>
-          <td>$3500</td>
-          <td><span class="status completed">مكتملة</span></td>
-          <td>2025-04-22</td>
-        </tr>
-        <tr>
-          <td>PM-002</td>
-          <td>ليلى حسين</td>
-          <td>$2700</td>
-          <td><span class="status pending">معلقة</span></td>
-          <td>2025-04-21</td>
-        </tr>
-        <tr>
-          <td>PM-003</td>
-          <td>سالم محمد</td>
-          <td>$1800</td>
-          <td><span class="status failed">فشلت</span></td>
-          <td>2025-04-20</td>
-        </tr>
+      <tbody id="payments-table">
       </tbody>
     </table>
   </div>
@@ -85,5 +66,8 @@
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isPayment.js"></script>
   <script type="module" src="../../js/auth/logout.js"></script>
+  <script type="module" src="../../js/utils/showToast.js"></script>
+  <script type="module" src="../../js/dashboard/reports/paymentHighlights.js"></script>
+  <script type="module" src="../../js/dashboard/reports/lastPaymets.js"></script>
 </body>
 </html>
