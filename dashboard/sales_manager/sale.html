@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/dashboard/sales_manager/sale_details.css" />
     <link rel="stylesheet" href="../../css/component/toast.css" />
+    <link rel="stylesheet" href="../../css/component/spinner.css" />
 </head>
 
 <body>
@@ -39,7 +40,7 @@
                     <span id="sale-id" class="value">cma488e7k0001kvmmevt1f9a6</span>
                 </div>
                 <div class="sale-date">
-                    <span class="label">تاريخ عملية البيع:</span>
+                    <span class="label">تاريخ الطلب:</span>
                     <span id="sale-date" class="value">٣٠ أبريل ٢٠٢٥</span>
                 </div>
             </div>
@@ -86,7 +87,7 @@
                         <span class="label">سعر البيع:</span>
                         <span id="sale-price" class="value">٢٣,٠٠٠,٠٠٠ ر.س</span>
                     </div>
-                    <div class="info-item" id="payment-status" >
+                    <div class="info-item" id="payment-status">
                         <span class="label">حالة الدفع:</span>
                         <span class="value status-pending">قيد الانتظار</span>
                     </div>
@@ -102,13 +103,32 @@
             </div>
 
             <div class="actions-section">
-                <button id="update-payment-btn" class="action-btn payment-btn">
+                <!--  <button id="update-payment-btn" class="action-btn payment-btn">
                     <i class="fas fa-money-bill"></i> تحديث حالة الدفع
-                </button>
+                </button>-->
                 <button id="update-pickup-btn" class="action-btn pickup-btn">
                     <i class="fas fa-truck"></i> تحديث حالة الاستلام
                 </button>
             </div>
+        </div>
+    </div>
+    <div id="update-role-dialog" class="dialog-overlay">
+        <div class="dialog-content">
+            <h3>تعديل دور المستخدم</h3>
+            <form id="update-pickup-form">
+                <div class="form-group">
+                    <label for="pickup-status-form">تحديث حالة الاستلام :</label>
+                    <select id="pickup-status-form" name="pickup-status" class="form-control">
+                        <option value="PENDING">قيد الانتظار</option>
+                        <option value="READY">جاهز للاستلام</option>
+                        <option value="PICKED_UP">تم الإستلام</option>
+                    </select>
+                </div>
+                <div class="dialog-buttons">
+                    <button type="button" id="cancel-update" class="btn btn-secondary">إلغاء</button>
+                    <button type="button" id="confirm-update" class="btn btn-primary">تأكيد</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -118,6 +138,7 @@
     <script type="module" src="../../js/auth/logout.js"></script>
     <script type="module" src="../../js/utils/showToast.js"></script>
     <script type="module" src="../../js/dashboard/manageSales/saleDetails.js"></script>
+    <script type="module" src="../../js/dashboard/manageSales/updatePickUpStatus.js"></script>
 </body>
 
 </html>

@@ -209,10 +209,10 @@ table th {
     align-items: center;
     margin-bottom: 20px;
     padding: 0 10px;
-  }
-  
-  /* Add user button styling */
-  .btn-add {
+}
+
+/* Add user button styling */
+.btn-add {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
@@ -220,14 +220,14 @@ table th {
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s;
-  }
-  
-  .btn-add:hover {
+}
+
+.btn-add:hover {
     background-color: #45a049;
-  }
-  
-  /* Search container styling */
-  .search-container {
+}
+
+/* Search container styling */
+.search-container {
     display: flex;
     align-items: center;
     background-color: #fff;
@@ -235,10 +235,10 @@ table th {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 300px;
-  }
-  
-  /* Search input styling */
-  #email-search {
+}
+
+/* Search input styling */
+#email-search {
     flex: 1;
     padding: 10px 15px;
     border: none;
@@ -248,34 +248,34 @@ table th {
     color: #333;
     background-color: transparent;
     direction: ltr;
-  }
-  
-  #email-search::placeholder {
+}
+
+#email-search::placeholder {
     color: #aaa;
-  }
-  
-  /* Search button styling */
-  .btn-search {
+}
+
+/* Search button styling */
+.btn-search {
     background-color: #3498db;
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .btn-search:hover {
+}
+
+.btn-search:hover {
     background-color: #2980b9;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .actions-container {
-      flex-direction: column;
-      gap: 15px;
+        flex-direction: column;
+        gap: 15px;
     }
-    
+
     .search-container {
-      width: 100%;
+        width: 100%;
     }
-  }
+}
