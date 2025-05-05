@@ -217,6 +217,13 @@ body {
 .badge.completed {
   background-color: #343a40;
 }
+.badge.processing {
+  background-color: #007bff;
+}
+
+.badge.pending {
+  background-color: #ffc107;
+}
 
 @media (max-width: 768px) {
   .sidebar {
