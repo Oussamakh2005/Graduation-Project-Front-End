@@ -18,18 +18,16 @@ try {
             <td>${setAvailabiltyStatus(car.availability)}</td>
             <td>
               <button class="btn btn-view">عرض</button>
-              <button class="btn btn-delete">حذف</button>
+              <button class="btn btn-delete delete-car-btn" id="delete-car-btn" data-id="${car.id}">حذف</button>
             </td>
           </tr>
             `
         };
 
     } else {
-        console.log(data.msg);
         showToast("فشل الحصول على البيانات يرجى إعادة المحاولة", "error")
     }
 } catch (err) {
-    console.log(err);
     showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
 }
 
