@@ -49,7 +49,7 @@ function renderCarDetails(data) {
     //set image :
     image.src = data.mainImage;
     model.innerText = data.model;
-    price.innerText = `${data.price} ريال`;
+    price.innerText = `${data.price} دينار`;
     //set features :
     features.innerHTML = `
           <div class="feature"><i class="fas fa-cogs"></i> ${setTransmission()}</div>

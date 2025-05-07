@@ -376,3 +376,48 @@ input[type="file"] {
     padding: 20px;
   }
 }
+/* Styles for tag input system */
+.tag-input-container {
+  margin-top: 10px;
+}
+
+.tag-input-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.tag-input-wrapper button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tag-input-wrapper button:hover {
+  background-color: #45a049;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #f1f1f1;
+  border-radius: 16px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tag-remove {
+  cursor: pointer;
+  color: #ff4d4d;
+  font-size: 14px;
+}

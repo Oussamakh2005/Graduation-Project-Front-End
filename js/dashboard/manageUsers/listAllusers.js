@@ -22,10 +22,10 @@ try {
             <td>${setUserRole(user.role)}</td>
             <td>
               <button class="btn btn-edit" data-id="${user.id}">تعديل الدور</button>
-              <button class="btn btn-delete" data-id="${user.id}">حذف</button>
             </td>
           </tr>
-            `
+            ` 
+            //              <button class="btn btn-delete" data-id="${user.id}">حذف</button>
         };
 
     } else {

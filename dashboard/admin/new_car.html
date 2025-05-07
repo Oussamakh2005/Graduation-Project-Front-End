@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet"  href="../../css/dashboard/admin/new_car.css"/>
   <link rel="stylesheet"  href="../../css/component/toast.css"/>
-
 </head>
 <body>
   <div class="sidebar">
@@ -21,9 +20,7 @@
         <li><a href="./users.html"><i class="fas fa-users"></i> المستخدمون</a></li>
       </ul>
     </div>
-    <div class="logout">
-      <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
-    </div>
+    <button class="logout" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
   </div>
       <!-- Toast Container -->
       <div id="toastContainer" class="toast-container"></div>
@@ -129,14 +126,27 @@
             <label for="max-speed"> السرعه القصوى</label>
             <input type="number" id="max-speed" required>
           </div>
+          
+          <!-- Features with tag input system -->
           <div class="form-group">
-            <label for="features">المزايا (مفصولة بفواصل)</label>
-            <input type="text" id="features" name="features" placeholder="مثال: فتحة سقف، بلوتوث، كاميرا خلفية">
+            <label for="feature-input">المزايا</label>
+            <div class="tag-input-wrapper">
+              <input type="text" id="feature-input" placeholder="مثال: فتحة سقف">
+              <button type="button" id="add-feature-btn">إضافة</button>
+            </div>
+            <div class="tags-container" id="features-container"></div>
+            <input type="hidden" id="features" name="features">
           </div>
 
+          <!-- Colors with tag input system -->
           <div class="form-group">
-            <label for="colors">الألوان المتاحة (مفصولة بفواصل)</label>
-            <input type="text" id="colors" name="colors" placeholder="مثال: أحمر، أسود، أبيض">
+            <label for="color-input">الألوان المتاحة</label>
+            <div class="tag-input-wrapper">
+              <input type="text" id="color-input" placeholder="مثال: أحمر">
+              <button type="button" id="add-color-btn">إضافة</button>
+            </div>
+            <div class="tags-container" id="colors-container"></div>
+            <input type="hidden" id="colors" name="colors">
           </div>
         </div>
 
@@ -174,7 +184,7 @@
   <script type="module" src="../../js/dashboard/upload_car/initializeCar.js"></script>
   <script type="module" src="../../js/dashboard/upload_car/uploadEngineData.js"></script>
   <script type="module" src="../../js/dashboard/upload_car/uploadFeatures.js"></script>
-  <script type="module" src="../../js/dashboard/upload_car/uploadFeatures.js"></script>
   <script type="module" src="../../js/utils/addCarSteps.js"></script>
+  <script type="module" src="../../js/utils/featuresCards.js"></script>
 </body>
 </html>
