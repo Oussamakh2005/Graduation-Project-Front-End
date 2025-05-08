@@ -7,10 +7,9 @@
   <title>بوابة الزبون</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="../../css//dashboard/client/purchases.css"/>
-  <link rel="stylesheet" href="../../css/component/toast.css"/>
+  <link rel="stylesheet" href="../../css//dashboard/client/purchases.css" />
+  <link rel="stylesheet" href="../../css/component/toast.css" />
 </head>
-
 <body>
 
   <div class="sidebar">
@@ -59,11 +58,50 @@
           <th>تاريخ الشراء</th>
           <th>الحالة</th>
           <th>المتبقي</th>
+          <th>العمليات</th>
         </tr>
       </thead>
       <tbody id="sales-table">
       </tbody>
     </table>
+  </div>
+  <!-- Purchase Details Modal -->
+  <div id="purchase-details-modal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" id="close-btn">&times;</button>
+      <h2>تفاصيل المشتراة</h2>
+      <div class="purchase-details">
+        <div class="car-image-container">
+          <img id="car-image" src="https://wmzqehxpiecvvfmemlox.supabase.co/storage/v1/object/public/cars_images/uploads/f490991e-3b70-418a-a400-530f149c1c10+_car-img.jpg" alt="صورة السيارة">
+        </div>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="detail-label">معرف المشتراة:</span>
+            <span id="sale-id" class="detail-value"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">موديل السيارة:</span>
+            <span id="car-model" class="detail-value"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">اسم المشتري:</span>
+            <span id="client-name" class="detail-value"></span>
+          </div>
+          <div class="detail-item" id="car-pickup-status">
+            <span class="detail-label">حالة الاستلام:</span>
+            <span id="pickup-status" class="detail-value"> pending</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">السعر الإجمالي:</span>
+            <span id="total-price" class="detail-value"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">الدفعة المقدمة:</span>
+            <span id="down-payment" class="detail-value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script type="module" src="../../js/utils/config.js"></script>
   <script type="module" src="../../js/auth/authorized.js"></script>
@@ -72,5 +110,7 @@
   <script type="module" src="../../js/utils/showToast.js"></script>
   <script type="module" src="../../js/dashboard/reports/clientHighlights.js"></script>
   <script type="module" src="../../js/dashboard/client/myPurchases.js"></script>
+  <script type="module" src="../../js/dashboard/client/showSaleDetails.js"></script>
 </body>
+
 </html>
