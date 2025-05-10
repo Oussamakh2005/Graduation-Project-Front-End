@@ -17,7 +17,7 @@ try {
             <td>${car.price} دينار</td>
             <td>${setAvailabiltyStatus(car.availability)}</td>
             <td>
-              <button class="btn btn-view">عرض</button>
+              <a href="./edit_car.html?id=${car.id}"><button class="btn btn-view">عرض</button></a>
               <button class="btn btn-delete delete-car-btn" id="delete-car-btn" data-id="${car.id}">حذف</button>
             </td>
           </tr>

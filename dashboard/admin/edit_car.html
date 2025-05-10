@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تعديل بيانات السيارة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet"  href="../../css/dashboard/admin/edit_car.css"/>
+  <link rel="stylesheet"  href="../../css/dashboard/admin/new_car.css"/>
+  <link rel="stylesheet"  href="../../css/component/toast.css"/>
+
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2><i class="fas fa-car"></i>لوحة المشرف</h2>
+      <ul>
+        <li><a href="./dashboard.html"><i class="fas fa-chart-line"></i> لوحة التحكم</a></li>
+        <li class="active"><a href="./cars.html"><i class="fas fa-car-side"></i> السيارات</a></li>
+        <li><a href="./users.html"><i class="fas fa-users"></i> المستخدمون</a></li>
+      </ul>
+    </div>
+    <button class="logout" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
+  </div>
+  
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+  
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="main">
+    <div class="dashboard-header">
+      <div class="car-header">
+        <div class="car-title"><i class="fas fa-edit"></i> تعديل بيانات السيارة</div>
+        <!--<div class="action-buttons">
+          <a href="./cars.html" class="btn btn-secondary"><i class="fas fa-arrow-right"></i> العودة</a>
+          <button type="button" class="delete-btn" id="deleteCarBtn"><i class="fas fa-trash"></i> حذف السيارة</button>
+        </div>-->
+      </div>
+    </div>
+
+    <div class="form-container">
+      <!-- Car ID (hidden) -->
+      <input type="hidden" id="carId">
+      
+      <!-- Section 1: Basic Information -->
+      <div class="section-container" id="basic-info-section">
+        <div class="section-header">
+          <div class="section-title">
+            <i class="fas fa-info-circle"></i>
+            معلومات أساسية
+          </div>
+          <div>
+            <span class="section-status status-pending" id="basic-info-status">بانتظار الحفظ</span>
+            <button type="button" class="section-confirm" id="basic-info-confirm">
+              <i class="fas fa-save"></i> حفظ المعلومات الأساسية
+            </button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>الموديل</label>
+          <input type="text" id="model" required>
+        </div>
+        <div class="form-group">
+          <label for="year">سنة الصنع</label>
+          <input type="number" id="year" name="year" required>
+        </div>
+        <div class="form-group">
+          <label for="type">نوع السيارة</label>
+          <select id="type" name="carType" required>
+            <option value="SEDAN">سيدان</option>
+            <option value="SUV">دفع رباعي</option>
+            <option value="COUPE">كوبيه</option>
+            <option value="TRUCK">شاحنة</option>
+            <option value="VAN">فان</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="transmission">نوع ناقل الحركة</label>
+          <select id="transmission" name="transmission" required>
+            <option value="AUTO">أوتوماتيك</option>
+            <option value="MANUAL">يدوي</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="driveType">نوع الدفع</label>
+          <select id="driveType" name="driveType" required>
+            <option value="FRONT_WHEEL">دفع أمامي</option>
+            <option value="REAR_WHEEL">دفع خلفي</option>
+            <option value="ALL_WHEEL">دفع رباعي</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>السعر</label>
+          <input type="number" id="price" required>
+        </div>
+        <div class="form-group">
+          <label for="discount">التخفيض (إختياري)</label>
+          <input type="number" id="discount" value="0"/>
+        </div>
+      </div>
+
+      <!-- Section 2: Engine Details -->
+      <div class="section-container" id="engine-section">
+        <div class="section-header">
+          <div class="section-title">
+            <i class="fas fa-cogs"></i>
+            تفاصيل المحرك
+          </div>
+          <div>
+            <span class="section-status status-pending" id="engine-status">بانتظار الحفظ</span>
+            <button type="button" class="section-confirm" id="engine-confirm">
+              <i class="fas fa-save"></i> حفظ تفاصيل المحرك
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="capacity">سعة المحرك</label>
+          <input type="number" id="capacity" name="engine" placeholder="مثال: 22 لتر" required>
+        </div>
+        <div class="form-group">
+          <label for="engine-type">نوع المحرك</label>
+          <select id="engine-type" required>
+            <option value="PETROL">بنزين</option>
+            <option value="DIESEL">ديزل</option>
+            <option value="ELECTRIC">كهربائي</option>
+            <option value="GAS">غاز</option>
+            <option value="HYBRID">هايبرد</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="horsepower">عدد الأحصنة</label>
+          <input type="number" id="horsepower" name="horsepower" placeholder="مثال: 250" required>
+        </div>
+      </div>
+
+      <!-- Section 3: Features and Colors -->
+      <div class="section-container" id="features-section">
+        <div class="section-header">
+          <div class="section-title">
+            <i class="fas fa-list-ul"></i>
+            المزايا والألوان المتاحة
+          </div>
+          <div>
+            <span class="section-status status-pending" id="features-status">بانتظار الحفظ</span>
+            <button type="button" class="section-confirm" id="features-confirm">
+              <i class="fas fa-save"></i> حفظ المزايا والألوان
+            </button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="doors">عدد الابواب </label>
+          <input type="number" id="doors" required>
+        </div>
+        <div class="form-group">
+          <label for="seats">عدد المقاعد</label>
+          <input type="number" id="seats" required>
+        </div>
+        <div class="form-group">
+          <label for="max-speed">السرعه القصوى</label>
+          <input type="number" id="max-speed" required>
+        </div>
+        
+        <!-- Features with tag input system -->
+        <div class="form-group">
+          <label for="feature-input">المزايا</label>
+          <div class="tag-input-wrapper">
+            <input type="text" id="feature-input" placeholder="مثال: فتحة سقف">
+            <button type="button" id="add-feature-btn">إضافة</button>
+          </div>
+          <div class="tags-container" id="features-container"></div>
+          <input type="hidden" id="features" name="features">
+        </div>
+
+        <!-- Colors with tag input system -->
+        <div class="form-group">
+          <label for="color-input">الألوان المتاحة</label>
+          <div class="tag-input-wrapper">
+            <input type="text" id="color-input" placeholder="مثال: أحمر">
+            <button type="button" id="add-color-btn">إضافة</button>
+          </div>
+          <div class="tags-container" id="colors-container"></div>
+          <input type="hidden" id="colors" name="colors">
+        </div>
+      </div>
+
+      <!-- Section 4: Images -->
+      <div class="section-container" id="images-section">
+        <div class="section-header">
+          <div class="section-title">
+            <i class="fas fa-images"></i>
+            الصور
+          </div>
+          <div>
+            <span class="section-status status-pending" id="images-status">بانتظار الحفظ</span>
+            <button type="button" class="section-confirm" id="images-confirm">
+              <i class="fas fa-save"></i> حفظ الصور
+            </button>
+          </div>
+        </div>
+        
+        <!-- Current Images -->
+        <div class="form-section-subtitle">الصور الحالية</div>
+        <div id="current-images" class="preview-container"></div>
+        
+        <!-- Upload New Images -->
+        <div class="form-section-subtitle">إضافة صور جديدة</div>
+        <div class="file-upload-container" onclick="document.getElementById('image').click()">
+          <i class="fas fa-upload file-upload-icon"></i>
+          <div class="file-upload-text">اضغط لرفع الصور</div>
+          <div class="file-upload-hint">JPEG, JPG حتى ٥ ميجا لكل صورة</div>
+          <input type="file" id="image" name="image" class="hidden-file-input" accept="image/*" multiple>
+        </div>
+
+        <div id="preview" class="preview-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <!--<div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>تأكيد الحذف</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>هل أنت متأكد من حذف هذه السيارة؟ هذا الإجراء لا يمكن التراجع عنه.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelDelete" class="btn btn-secondary">إلغاء</button>
+        <button id="confirmDelete" class="btn delete-btn">تأكيد الحذف</button>
+      </div>
+    </div>-->
+  </div>
+
+  <script type="module" src="../../js/utils/config.js"></script>
+  <script type="module" src="../../js/auth/authorized.js"></script>
+  <script type="module" src="../../js/auth/isAdmin.js"></script>
+  <script type="module" src="../../js/auth/logout.js"></script>
+  <script type="module" src="../../js/utils/showToast.js"></script>
+  <script type="module" src="../../js/utils/featuresCards.js"></script>
+  <script type="module" src="../../js/dashboard/editCar/loadCarData.js"></script>
+  <!--<script type="module" src="../../js/dashboard/edit_car/updateCarSections.js"></script>-->
+</body>
+</html>
