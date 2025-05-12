@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Change logo to dark mode version
       if (logoImg) {
-        logoImg.src = "https://i.postimg.cc/x1kDTBRh/dark-logo-removebg-preview.png";
+        logoImg.src = "https://i.postimg.cc/BQZ7T5fR/dark-logo-removebg-preview.png";
       }
     }
     
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Change logo to light mode version
       if (logoImg) {
-        logoImg.src = "https://i.postimg.cc/wBK5RsXH/light-logo-removebg-preview.png";
+        logoImg.src = "https://i.postimg.cc/BQZ7T5fR/dark-logo-removebg-preview.png";
       }
     }
   });
