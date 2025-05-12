@@ -52,6 +52,11 @@ async function fetchCarData(carId) {
 }
 
 function populateFormWithCarData(carData) {
+  // Add car id to update buttons :
+  document.getElementById("basic-info-confirm").dataset.id = carData.id;
+  document.getElementById("engine-confirm").dataset.id = carData.engine[0].id;
+  document.getElementById("features-confirm").dataset.id = carData.id;
+  document.getElementById("images-confirm").dataset.id = carData.id;
   // Basic Information (Section 1)
   document.getElementById('model').value = carData.model || '';
   document.getElementById('year').value = carData.year || '';
