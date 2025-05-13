@@ -5,18 +5,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem('token');
     const submitBtn = document.getElementById("submit-review-btn");
     submitBtn.addEventListener("click", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const pageContainer = document.getElementById("container");
         if (!token) {
             window.location.href = "./login.html";
         } else {
             const auhtenticated = await checkUserAuthenticated(`${config.API_URL}/api/user/auhtenticated`);
             if (!auhtenticated.ok) {
                 window.location.href = "./login.html";
-            }else{
-                console.log("you are authenticated you can add review")
+            } else {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const carId = urlParams.get('id');
+                newReview(carId);
             }
         }
     });
+    async function newReview(carId) {
+        try {
+            const comment = document.getElementById('user-comment').value;
+            const response = await fetch(`${config.API_URL}/api/review/${carId}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `${token}`,
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    comment
+                }),
+            });
+            const data = await response.json();
+            if (data.ok) {
+                showToast("Comment added successfully", "success");
+            } else {
+                console.log(data.msg)
+                showToast("faild to add comment", "error");
+            }
+        } catch (err) {
+            console.log(err)
+            showToast("Something went wrong", "error");
+        }
+    }
 });
