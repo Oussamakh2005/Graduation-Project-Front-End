@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     //set client name  
                     document.getElementById("client-name").innerText = data.data.user.firstName + " " +data.data.user.lastName;
                     //set total price 
-                    document.getElementById("total-price").innerText = data.data.salePrice + " دينار";
+                    document.getElementById("total-price").innerText = data.data.salePrice + " $";
                     //set down payment 
-                    document.getElementById("down-payment").innerText = data.data.salePrice * 0.2 +" دينار";
+                    document.getElementById("down-payment").innerText = data.data.salePrice * 0.2 +" $";
                     //set pick up status 
                     document.getElementById("car-pickup-status").innerHTML = setPickUpStatus(data.data.pickupStatus);
                     showDialog();

@@ -34,14 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             const data = await response.json();
             if (data.ok) {
-                showToast("Comment added successfully", "success");
+                showToast("تم إضافة التعليق بنجاح", "success");
             } else {
                 console.log(data.msg)
-                showToast("faild to add comment", "error");
+                showToast("فشل إضافة التعليق يرجى إعادة المحاولة لاحقا", "error");
             }
         } catch (err) {
             console.log(err)
-            showToast("Something went wrong", "error");
+            showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
         }
     }
 });

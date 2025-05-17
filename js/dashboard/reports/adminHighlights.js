@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(data.ok){
             totalCarsCard.innerText = data.data.totalCars;
             totalUsersCard.innerText = data.data.totalUsers;
-            totalRevenuCard.innerText = data.data.totalRevenu + " دينار"; 
+            totalRevenuCard.innerText = data.data.totalRevenu + "$"; 
         }else{
             showToast("فشل الحصول على البيانات يرجى إعادة المحاولة","error")
         }

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <tr>
                    <td>${payment.id}</td>
                    <td>${payment.sale.user.firstName + " "+payment.sale.user.lastName}</td>
-                   <td>${payment.paymentAmount + " دينار"}</td>
+                   <td>${payment.paymentAmount + "$"}</td>
                    <td>${setPaymentType(payment.paymentType)}</td>
                    <td>${payment.paymentDate}</td>
                 </tr>

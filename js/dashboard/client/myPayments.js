@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <tr>
                   <td>${payment.id}</td>
                   <td>${payment.paymentDate}</td>
-                  <td>${payment.paymentAmount} دينار</td>
+                  <td>${payment.paymentAmount} $</td>
                   <td>${setPaymentType(payment.paymentType)}</td>
                 </tr>
                 `

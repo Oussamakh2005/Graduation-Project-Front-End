@@ -14,7 +14,7 @@ try {
             <td>${car.id}</td>
             <td>${car.model}</td>
             <td>${car.year}</td>
-            <td>${car.price} دينار</td>
+            <td>${car.price} $</td>
             <td>${setAvailabiltyStatus(car.availability)}</td>
             <td>
               <a href="./edit_car.html?id=${car.id}"><button class="btn btn-view">عرض</button></a>

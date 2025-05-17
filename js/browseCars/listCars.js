@@ -14,7 +14,7 @@ try {
         <img src="${car.mainImage}" alt="${car.model}" />
         <div class="info">
           <h4>${car.model}</h4>
-          <p class="price">${car.price - car.discount} دينار</p>
+          <p class="price">${car.price - car.discount} $</p>
           <a href="./pdp.html?id=${car.id}" class="details-btn">عرض التفاصيل</a>
         </div>
       </div>

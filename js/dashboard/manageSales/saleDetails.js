@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             // customer last name :
             document.getElementById("customer-email").innerText = `${data.data.user.email}`;
             //sale price :
-            document.getElementById('sale-price').innerText = `${data.data.salePrice} دينار`;
+            document.getElementById('sale-price').innerText = `${data.data.salePrice} $`;
             //payment status :
             document.getElementById('payment-status').innerHTML = `
                          <span class="label">حالة الدفع:</span>

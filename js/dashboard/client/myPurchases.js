@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <tr>
                   <td>${sale.id}</td>
                   <td>${sale.carModel.model}</td>
-                  <td>${sale.salePrice} دينار</td>
+                  <td>${sale.salePrice} $</td>
                   <td>${sale.saleDate}</td>
                   <td>${setPaymentStatus(sale.paymentStatus)}</td>
                   <td>${setPrice(sale.paymentStatus,sale.salePrice)} دينار</td>
