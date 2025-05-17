@@ -22,9 +22,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 `;
             }
         }else{
-            showToast("faild to get reviews","error")
+            showToast("فشل الحصول على المراجعات","error")
         }
-    } catch {
-        showToast("Something went wrong","error")
+    } catch(err) {
+        console.log(err)
+        showToast("حدث خطأ غير متوقع","error")
     }
 });
