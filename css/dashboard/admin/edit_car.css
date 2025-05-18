@@ -1,11 +1,10 @@
-
 .section-container {
   margin-bottom: 30px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .section-header {
@@ -104,7 +103,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,9 +120,102 @@
   animation: spin 2s linear infinite;
 }
 
+/* Image preview styling */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.preview-container .image-preview {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-container .image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-container .image-preview .remove-image {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.preview-container .image-preview .remove-image:hover {
+  background-color: rgba(255, 0, 0, 0.9);
+}
+
+/* File upload container styling */
+.file-upload-container {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.file-upload-container:hover {
+  border-color: #aaa;
+  background-color: #f9f9f9;
+}
+
+.file-upload-icon {
+  font-size: 2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.file-upload-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.file-upload-hint {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Remove progress bar styles since we're showing all sections at once */

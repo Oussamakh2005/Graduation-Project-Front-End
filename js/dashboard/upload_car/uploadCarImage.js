@@ -4,7 +4,7 @@ export const uploadCarImage = async (carModelId) => {
     const imageInput = document.getElementById('image');
     const formData = new FormData();
     if(!imageInput.files[0]){
-        showToast("يرجى إختيار صورة للسيارة",error);
+        showToast("يرجى إختيار صورة للسيارة","error");
         return null;
     }
     formData.append('image',imageInput.files[0]);

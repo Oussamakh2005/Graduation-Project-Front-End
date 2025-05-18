@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const featuresConfirmBtn = document.getElementById("features-confirm");
     const imageConfirmBtn = document.getElementById("images-confirm");
     const token = localStorage.getItem('token');
-
+    //////////////////////////////////////////////////////////////////
     async function updateBasicInfo(carId) {
         const model = document.getElementById("model").value;
         const year = parseInt(document.getElementById("year").value);
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
         }
     }
+    //////////////////////////////////////////////////////////////////////////
     async function updateEngineInfo(engineId) {
         const capacity = parseInt(document.getElementById("capacity").value);
         const type = document.getElementById("engine-type").value;
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
         }
     }
+    /////////////////////////////////////////////////////////////////////////
     async function updateFeatures(carId) {
         const colors = getColorsAndColors("color-tag");//document.getElementById("colors").value.split(',');
         const features = getColorsAndColors("feature-tag");//document.getElementById("features").value.split(',');
@@ -112,7 +114,38 @@ document.addEventListener("DOMContentLoaded", async () => {
             showToast("يرجى ملأ كل المعلومات المطلوبه", "info");
         }
     }
-    function upadeImage() { }
+    ////////////////////////////////////////////////////////////////////////////////
+    async function upadeImage(carModelId) {
+        const imageInput = document.getElementById('image');
+        const formData = new FormData();
+        if (!imageInput.files[0]) {
+            showToast("يرجى إختيار صورة للسيارة", "error");
+        } else {
+            formData.append('image', imageInput.files[0]);
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(`${config.API_URL}/api/car/update/image/${carModelId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `${token}`
+                    },
+                    body: formData,
+                });
+                const data = await response.json();
+                if (data.ok) {
+                    showToast("تم تحديث الصوره بنجاح ", "success");
+                } else {
+                    console.log(data);
+                    showToast("حدث خطأ أثناء تحديث الصورة", "error");
+                }
+
+            } catch (error) {
+                console.log(error);
+                showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
+            }
+        }
+    }
+    ////////////////////////////////////
     function getColorsAndColors(tag) {
         const elements = document.getElementsByClassName(tag);
         const features = [];
@@ -125,14 +158,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         return features;
     }
 
-    basicInfoConfirmBtn.addEventListener("click" , () => {
+    basicInfoConfirmBtn.addEventListener("click", () => {
         updateBasicInfo(basicInfoConfirmBtn.dataset.id);
     });
-    engineInfoConfirmBtn.addEventListener("click" , () => {
+    engineInfoConfirmBtn.addEventListener("click", () => {
         updateEngineInfo(engineInfoConfirmBtn.dataset.id);
     });
-    featuresConfirmBtn.addEventListener("click" , () => {
+    featuresConfirmBtn.addEventListener("click", () => {
         updateFeatures(featuresConfirmBtn.dataset.id);
+    });
+    imageConfirmBtn.addEventListener("click",() => {
+        upadeImage(imageConfirmBtn.dataset.id);
     });
 });
 
