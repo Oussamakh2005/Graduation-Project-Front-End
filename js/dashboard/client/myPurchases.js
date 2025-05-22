@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                   <td>${sale.saleDate}</td>
                   <td>${setPaymentStatus(sale.paymentStatus)}</td>
                   <td>${setPrice(sale.paymentStatus,sale.salePrice)} دينار</td>
-                  <td><button class="btn btn-view" data-id="${sale.id}">عرض</button></td>
+                  <td>
+                  ${setCancelBtn(sale.paymentStatus,sale.id)}
+                  <button class="btn btn-view" data-id="${sale.id}">عرض</button>
+                  </td>
                 </tr>
                 `;
             };
@@ -59,4 +62,8 @@ function setPrice(status,price){
         case 'COMPLETED':
             return 0;
     }
+}
+
+function setCancelBtn(status,id){
+    return (status === 'PENDING')? `<button class="btn btn-cancel" data-id="${id}">إلغاء</button>` : '';
 }

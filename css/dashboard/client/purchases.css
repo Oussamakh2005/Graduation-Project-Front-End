@@ -237,6 +237,12 @@ body {
   background-color: #e2e6ea;
   color: #333;
 }
+.btn-cancel{
+  background-color: #dc3545;
+  color: white;
+}
+
+
 
 @media (max-width: 768px) {
   .sidebar {
