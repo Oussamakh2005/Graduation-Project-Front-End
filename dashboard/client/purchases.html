@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../../css//dashboard/client/purchases.css" />
   <link rel="stylesheet" href="../../css/component/toast.css" />
+  <link rel="stylesheet" href="../../css/component/spinner.css" />
 </head>
+
 <body>
 
   <div class="sidebar">
@@ -73,7 +75,9 @@
       <h2>تفاصيل المشتراة</h2>
       <div class="purchase-details">
         <div class="car-image-container">
-          <img id="car-image" src="https://wmzqehxpiecvvfmemlox.supabase.co/storage/v1/object/public/cars_images/uploads/f490991e-3b70-418a-a400-530f149c1c10+_car-img.jpg" alt="صورة السيارة">
+          <img id="car-image"
+            src="https://wmzqehxpiecvvfmemlox.supabase.co/storage/v1/object/public/cars_images/uploads/f490991e-3b70-418a-a400-530f149c1c10+_car-img.jpg"
+            alt="صورة السيارة">
         </div>
         <div class="details-grid">
           <div class="detail-item">
@@ -104,6 +108,17 @@
       </div>
     </div>
   </div>
+  <!-- Confirmation Dialog (Hidden by default) -->
+  <div id="delete-confirmation-dialog" class="dialog-overlay">
+    <div class="dialog-container">
+      <div class="dialog-header">تأكيد الإلغاء</div>
+      <div class="dialog-message">هل أنت متأكد من رغبتك في إلغاء هذه العملية؟ لا يمكن التراجع عن هذا الإجراء.</div>
+      <div class="dialog-buttons">
+        <button id="cancel-delete" class="dialog-btn dialog-btn-cancel">إلغاء</button>
+        <button id="confirm-delete" class="dialog-btn dialog-btn-confirm">تأكيد الإلغاء</button>
+      </div>
+    </div>
+  </div>
   <script type="module" src="../../js/utils/config.js"></script>
   <script type="module" src="../../js/auth/authorized.js"></script>
   <script type="module" src="../../js/auth/isClient.js"></script>
@@ -112,6 +127,7 @@
   <script type="module" src="../../js/dashboard/reports/clientHighlights.js"></script>
   <script type="module" src="../../js/dashboard/client/myPurchases.js"></script>
   <script type="module" src="../../js/dashboard/client/showSaleDetails.js"></script>
+  <script type="module" src="../../js/dashboard/client/cancleOrder.js"></script>
 </body>
 
 </html>
