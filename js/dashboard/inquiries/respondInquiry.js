@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancel-btn');
     const closeBtn = document.getElementById('close-btn');
     const confirmeBtn = document.getElementById('confirm-btn');
+    const deleteBtn = document.getElementById('delete-btn');
     const dialog = document.getElementById('messageModal');
 
     // Show and hide dialog functions
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.classList.contains('show-dialog-btn')) {
             const messageId = e.target.dataset.id;
             confirmeBtn.dataset.id = messageId;
+            deleteBtn.dataset.id = messageId;
             const token = localStorage.getItem("token");
             try {
                 const response = await fetch(`${config.API_URL}/api/inquiry/${messageId}`, {
@@ -75,6 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
             confirmeBtn.disabled = false;
         }
     });
+    // Delete inquiry :
+        deleteBtn.addEventListener('click', async () => {
+        const originalText = deleteBtn.innerHTML;
+        deleteBtn.innerHTML = `<span class="spinner"></span> جاري الحذف ...`;
+        deleteBtn.disabled = true;
+        const messageId = deleteBtn.dataset.id;
+        const token = localStorage.getItem("token");
+        try {
+            const response = await fetch(`${config.API_URL}/api/inquiry/${messageId}`, {
+                method: "DELETE",
+                headers: {
+                    'Authorization': `${token}`,
+                },
+            });
+            const data = await response.json();
+            if (data.ok) {
+                hideDialog();
+                window.location.reload();
+            } else {
+                showToast("فشل  الحذف يرجى إعادة المحاولة لاحقا", "error");
+            }
+        } catch (error) {
+            console.log(error);
+            showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
+        } finally {
+            deleteBtn.innerHTML = originalText;
+            deleteBtn.disabled = false;
+        }
+    })
     // Handle cancel button inside the dialog
     cancelBtn.addEventListener('click', hideDialog);
     closeBtn.addEventListener('click', hideDialog);
