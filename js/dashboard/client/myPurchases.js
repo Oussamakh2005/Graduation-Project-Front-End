@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                   <td>${sale.salePrice} $</td>
                   <td>${sale.saleDate}</td>
                   <td>${setPaymentStatus(sale.paymentStatus)}</td>
-                  <td>${setPrice(sale.paymentStatus,sale.salePrice)} دينار</td>
+                  <td>${setPrice(sale.paymentStatus,sale.salePrice)}$</td>
                   <td>
                   ${setCancelBtn(sale.paymentStatus,sale.id)}
                   <button class="btn btn-view" data-id="${sale.id}">عرض</button>

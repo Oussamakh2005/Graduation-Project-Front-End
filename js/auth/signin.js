@@ -27,7 +27,7 @@ signBtn.addEventListener("click",async() => {
                     window.location.href = "../dashboard/admin/dashboard.html";
                     break;
                 case "CLIENT" :
-                    window.location.href = "../dashboard/client/purchases.html";
+                    window.location.href = "./home.html";
                     break;
                 case "PAYMENT" :
                     window.location.href = "../dashboard/payments_manager/dashboard.html";
@@ -39,7 +39,7 @@ signBtn.addEventListener("click",async() => {
         }else{
             signBtn.disabled = false;
             signBtn.innerHTML = originalText;
-            showToast(`فشل تسجيل الدخول ${data.msg}`,"error");
+            showToast(`فشل تسجيل الدخول`,"error");
         }
     }catch(err){
         signBtn.disabled = false;

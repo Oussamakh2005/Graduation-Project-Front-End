@@ -28,7 +28,7 @@ signupBtn.addEventListener("click", async () => {
         if (data.ok) {
             showToast("تم التسجيل بنجاح يرجى تأكيد البريد الإلكتروني", "success");
         } else {
-            showToast(`Sign up faild ${data.msg}`, "error");
+            showToast(`فشل انشاء الحساب`, "error");
         }
     } catch (err) {
         showToast("حدث خطأ غير متوقع يرجى إعادة المحاولة لاحقا", "error");
